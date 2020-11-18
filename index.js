@@ -83,13 +83,14 @@ function logAtMostFive(n) {
   }
 } // O(1) rather than O(5), we simplify to O(1)
 
+
 // 10. Space complexity aka aux space complexity
 // auxiliary space complexity: space required by the algorithm only, not including space taken up by the inputs
 
 // point of big O is assuming as n grows, we assume the input n is going to grow
 
 // RULES OF THUMB
-// Most primitive things like booleans, numbers, undefined, null, and Javascript are constant
+// Most primitive things like booleans, numbers, undefined, null, and Javascript are constant O(1)
 // Strings require O(n) space (where n is string length)
 // a 50 char string takes up 50 times more space than a single char string
 // Reference types (arrays, objects) are generally O(n) where n is the length (for arrays) or the number of keys (for objects)
@@ -100,9 +101,10 @@ function sum(arr) {
     total += arr[i];
   }
   return total;
-} // this has two vars, `total` and `i`
+} // this has two vars, `total` and `i` 
+// it's O(1) space becuse we aren't adding to the space that n takes up
 
-sum([0, 1, 2, 3]);
+sum([0, 1, 2, 3]); // -> 6
 
 function double(arr) {
   let newArr = [];
@@ -110,6 +112,6 @@ function double(arr) {
     newArr.push(2 * arr[i]);
   }
   return newArr;
-} // as arr length grows (the input approaches infinity) arr gets longer in proportion to length of input. so space taken up is direction proportionate to n
+} // as arr length grows (the input approaches infinity) arr gets longer in proportion to length of input. so space taken up is direction proportionate to n // O(n)
 
 double([1, 2, 3]); // [ 2, 4, 6 ]
