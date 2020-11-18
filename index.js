@@ -87,7 +87,7 @@ function logAtMostFive(n) {
 // 10. Space complexity aka aux space complexity
 // auxiliary space complexity: space required by the algorithm only, not including space taken up by the inputs
 
-// point of big O is assuming as n grows, we assume the input n is going to grow
+// point of big O is assuming as n grows, we assume the input n is going to grow. it also allows you to measure the algorithm independent of how fast the computer is that it's running on
 
 // RULES OF THUMB
 // Most primitive things like booleans, numbers, undefined, null, and Javascript are constant O(1)
@@ -115,3 +115,44 @@ function double(arr) {
 } // as arr length grows (the input approaches infinity) arr gets longer in proportion to length of input. so space taken up is direction proportionate to n // O(n)
 
 double([1, 2, 3]); // [ 2, 4, 6 ]
+
+
+
+// 11. Logs
+
+// log2(8) = 3 // log base 2 of 8 equals 3 -> 2^3 = 8
+// what that calculates is 2 to what power = 8
+// 2 * 2 * 2 = 8
+// log === log2
+
+// the binary logarithm of a number roughly measures the number of times you can divide that number by 2 before y ou get a values that's less than or equal to 1
+
+// (8 / 2) = 4 
+// (4 / 2) = 2 
+// (2 / 2) = 1
+// log(8) = 3 // we divided by 2 3 times
+
+// (25 / 2) = 12.5
+// (12.5 / 2) = 6.25
+// (6.25 / 2) = 3.125
+// (3.125 / 2) = 1.5625
+// (1.5625 / 2) = 0.7
+// log(25) equalish to 4.64
+
+// logs used in searching, sorting, recursion
+
+// ++++++++++++++++++++++++++++++++++++++++
+// SECTION 3
+// ++++++++++++++++++++++++++++++++++++++++
+
+// OBJECTS are unordered key/value pairs
+// good for fast access insertion/removal
+// Insertion, Removal, Access is O(1), searching is O(n)
+
+// Object.keys,values,entries are O(n). hasOwnProperty = O(1)
+
+// ARRAYS are good when you need order. not optimized if you don't need order
+
+// Big O of arrays Insertion,removal: it depends. Search: O(n). Access O(1)
+
+// inserting new element to an array on the end is easy. but inserting or removing at the beginning, it's O(n) because all the indices of the array have to be adjusted. 
