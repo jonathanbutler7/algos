@@ -52,6 +52,35 @@ function printAllPairs(n) {
       console.log(i, j);
     }
   }
-}
+} // run time ^ is O(n^2) because each for loop is O(n) -quadratic
 
-// run time ^ is O(n^2) because each for loop is O(n) -quadratic
+// 9. Simplifying Big O
+
+// Constants don't matter:
+// fast O(2n) -> O(n)
+// fastest O(500) -> O9(1) (constant run time)
+// slowest O(13n^2) -> O(n^2) (don't need the constant of 13)
+
+// O(n + 10) -> O(n)
+// O(1000n + 50) -> O(n)
+// O(n^2 + 5n + 8) -> O(n^2)
+
+// Big O Shorthands
+// 1. Arithmetic operations are constant
+// 2. Var assignment is constant
+// 3. Accessing elms in an array (by index) or objects (by key) is constant
+// 4. In a loop, the complexity is the loop length times complexity of what happens inside loop
+
+function logAtLeastFive(n) {
+  for (var i = 1; i <= Math.max(5, n); i++) {
+    console.log(i);
+  }
+} // O(n)
+
+function logAtMostFive(n) {
+  for (var i = 1; i <= Math.min(5, n); i++) {
+    console.log(i);
+  }
+} // O(1) rather than O(5), we simplify to O(1)
+
+
