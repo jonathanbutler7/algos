@@ -154,6 +154,10 @@ double([1, 2, 3]); // [ 2, 4, 6 ]
 
 // inserting new element to an array on the end is easy. but inserting or removing at the beginning, it's O(n) because all the indices of the array have to be adjusted.
 
+// ================================================
+// SECTION 4
+// ================================================
+
 // INTRO TO PROBLEM SOLVING 4.18
 
 // what is an algorithm? process or set ot steps to accomplish a certain task.
@@ -274,3 +278,73 @@ function isAlphaNumeric(char) {
   }
   return true;
 }
+
+// -Understand the problem
+// -Explore concrete examples
+// -Break it down
+// -Solve/simplify
+// -Look back and refactor
+
+// ================================================
+// SECTION 5
+// ================================================
+
+// 5.27
+// FREQUENCY COUNTERS
+// this pattern uses objects or sets to collect values/frequences of values
+
+// can often avoid the need for nested loops of O(n^2) operations with arrays/strings
+
+// Write a function called same which accepts two arrays and the function should return true if every value in the array has its corresponding value squared in the second array. The frequency of values must be the same.
+
+same([1, 2, 3], [4, 1, 9]); // true
+same([1, 2, 3], [4, 9]); // false
+same([1, 2, 3], [4, 4, 1]); // false (must be same frequency)
+
+// naive approach ->
+function same(arr1, arr2) {
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+  for (num1 of arr1) {
+    let correctIndex = arr2.indexOf(num1 ** 2);
+    if (correctIndex === -1) {
+      return false;
+    }
+    console.log(arr2);
+    arr2.splice(correctIndex, 1);
+  }
+  return true;
+}
+
+same([1, 2, 3, 2], [4, 1, 4, 9]);
+// 2 SEPARATE LOOPS IS VASTLY BETTER THAN 2 NESTED LOOPS
+
+// better approach
+
+function same(arr1, arr2) {
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+  let frequencyCounter1 = {};
+  let frequencyCounter2 = {};
+  for (let val of arr1) {
+    frequencyCounter1[val] = (frequencyCounter1[val] || 0) + 1;
+  }
+  for (let val of arr2) {
+    frequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1;
+  }
+  for (let key in frequencyCounter1) {
+    if (!(key ** 2 in frequencyCounter2)) {
+      return false;
+    }
+    if (frequencyCounter2[key ** 2] !== frequencyCounter1[key]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+// 5.28
+
+// given 2 strings, write a function to determine if the second string is an anagram of the first.
