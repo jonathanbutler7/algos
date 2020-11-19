@@ -83,7 +83,6 @@ function logAtMostFive(n) {
   }
 } // O(1) rather than O(5), we simplify to O(1)
 
-
 // 10. Space complexity aka aux space complexity
 // auxiliary space complexity: space required by the algorithm only, not including space taken up by the inputs
 
@@ -101,7 +100,7 @@ function sum(arr) {
     total += arr[i];
   }
   return total;
-} // this has two vars, `total` and `i` 
+} // this has two vars, `total` and `i`
 // it's O(1) space becuse we aren't adding to the space that n takes up
 
 sum([0, 1, 2, 3]); // -> 6
@@ -116,8 +115,6 @@ function double(arr) {
 
 double([1, 2, 3]); // [ 2, 4, 6 ]
 
-
-
 // 11. Logs
 
 // log2(8) = 3 // log base 2 of 8 equals 3 -> 2^3 = 8
@@ -127,8 +124,8 @@ double([1, 2, 3]); // [ 2, 4, 6 ]
 
 // the binary logarithm of a number roughly measures the number of times you can divide that number by 2 before y ou get a values that's less than or equal to 1
 
-// (8 / 2) = 4 
-// (4 / 2) = 2 
+// (8 / 2) = 4
+// (4 / 2) = 2
 // (2 / 2) = 1
 // log(8) = 3 // we divided by 2 3 times
 
@@ -141,9 +138,9 @@ double([1, 2, 3]); // [ 2, 4, 6 ]
 
 // logs used in searching, sorting, recursion
 
-// ++++++++++++++++++++++++++++++++++++++++
+// ================================================
 // SECTION 3
-// ++++++++++++++++++++++++++++++++++++++++
+// ================================================
 
 // OBJECTS are unordered key/value pairs
 // good for fast access insertion/removal
@@ -155,4 +152,74 @@ double([1, 2, 3]); // [ 2, 4, 6 ]
 
 // Big O of arrays Insertion,removal: it depends. Search: O(n). Access O(1)
 
-// inserting new element to an array on the end is easy. but inserting or removing at the beginning, it's O(n) because all the indices of the array have to be adjusted. 
+// inserting new element to an array on the end is easy. but inserting or removing at the beginning, it's O(n) because all the indices of the array have to be adjusted.
+
+// INTRO TO PROBLEM SOLVING 4.18
+
+// what is an algorithm? process or set ot steps to accomplish a certain task.
+// almost everything you do involves some sort of algorithm
+
+// How do you get better?
+// 1. Devise a plan for solving problems
+// 2. Master common problem solving patterns
+
+
+// 4.19
+
+// 1. Restate the problem in your own words
+// 2. What are the inputs that go into the problem?
+// 3. What are the outputs that go into the problem?
+// 4. Can the outputs be determined from the inputs?
+// 5. How should I label the important pieces of data that are part of the problem?
+
+// start with simple examples
+// progress to more complex examples
+// explore examples with empty inputs
+// explore examples with invalid inputs
+
+// explicitly write out the steps you need to take
+// this forces you to think about the code before you write it
+
+
+// 4.21
+
+// SIMPLIFY
+// find th core difficulty in what you'er trying to do
+// temporarily ignore that difficulty
+// write a simplified solution
+// incorporate that difficulty back in
+
+// write a function which takes in a string and returns counts of each character in the string.
+
+// charCount("aaaa"); // {a:4}
+// charCount("hello"); // {h: 1, e:1, l:2, o:1}
+// charCount(""); // null? false? undefined?
+let str = "Your PIN number is 1234!"
+function charCount(str) {
+  // do something
+  // return an object with keys that are alphanumeric lowercase characters in the string
+}
+
+function charCount(str) {
+  // make an object to return at end
+  // loop over string, for each character... lowercase it
+  // if char is num/letter & a key in object, add 1 to count
+  // if char is num/letter & not in object, add it and set value to 1
+  // if character is something else (space, period, etc.)don't do anything
+  // return object at end
+}
+
+function charCount(str) {
+  let result = {}
+  for (i = 0; i < str.length; i++) {
+    let char = str[i].toLowerCase()
+    if (result[char] > 0) {
+      result[char]++;
+    } else {
+      result[char] = 1;
+    }
+  }
+  return result
+}
+
+charCount(str)
