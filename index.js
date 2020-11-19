@@ -163,7 +163,6 @@ double([1, 2, 3]); // [ 2, 4, 6 ]
 // 1. Devise a plan for solving problems
 // 2. Master common problem solving patterns
 
-
 // 4.19
 
 // 1. Restate the problem in your own words
@@ -180,7 +179,6 @@ double([1, 2, 3]); // [ 2, 4, 6 ]
 // explicitly write out the steps you need to take
 // this forces you to think about the code before you write it
 
-
 // 4.21
 
 // SIMPLIFY
@@ -194,7 +192,7 @@ double([1, 2, 3]); // [ 2, 4, 6 ]
 // charCount("aaaa"); // {a:4}
 // charCount("hello"); // {h: 1, e:1, l:2, o:1}
 // charCount(""); // null? false? undefined?
-let str = "Your PIN number is 1234!"
+let str = 'Your PIN number is 1234!';
 function charCount(str) {
   // do something
   // return an object with keys that are alphanumeric lowercase characters in the string
@@ -210,16 +208,69 @@ function charCount(str) {
 }
 
 function charCount(str) {
-  let result = {}
+  let result = {};
   for (i = 0; i < str.length; i++) {
-    let char = str[i].toLowerCase()
+    let char = str[i].toLowerCase();
     if (result[char] > 0) {
       result[char]++;
     } else {
       result[char] = 1;
     }
   }
-  return result
+  return result;
 }
 
-charCount(str)
+charCount(str);
+
+function charCount(str) {
+  let obj = {};
+  for (var char of str) {
+    char = char.toLowerCase();
+    if (/[a-z0-9]/.test(char)) {
+      if (obj[char] > 0) {
+        obj[char]++;
+      } else {
+        obj[char] = 1;
+      }
+    }
+  }
+  return obj;
+}
+
+// function charCount(str) {
+//   let obj = {};
+//   for (var char of str) {
+//     char = char.toLowerCase();
+//     if (/[a-z0-9]/.test(char)) {
+//       if (obj[char] > 0) {
+//         obj[char]++;
+//       } else {
+//         obj[char] = 1;
+//       }
+//     }
+//   }
+//   return obj;
+// }
+
+function charCount(str) {
+  const obj = {};
+  for (var char of str) {
+    if (isAlphaNumeric(char)) {
+      char = char.toLowerCase();
+      obj[char] = ++obj[char] || 1;
+    }
+  }
+  return obj;
+}
+
+function isAlphaNumeric(char) {
+  const code = char.charCodeAt(0);
+  if (
+    !(code > 47 && code < 58) &&
+    !(code > 64 && code < 91) &&
+    !(code > 96 && code < 123)
+  ) {
+    return false;
+  }
+  return true;
+}
