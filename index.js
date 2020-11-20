@@ -348,3 +348,26 @@ function same(arr1, arr2) {
 // 5.28
 
 // given 2 strings, write a function to determine if the second string is an anagram of the first.
+
+function validAnagram(one, two) {
+  if (one.length !== two.length) {
+    return false;
+  }
+  const lookup = {};
+  for (let val of one) {
+    let letter = val;
+    lookup[letter] ? (lookup[letter] += 1) : (lookup[letter] = 1);
+  }
+
+  for (let val of two) {
+    let letter = val;
+    if (!lookup[letter]) {
+      return false;
+    } else {
+      lookup[letter] -= 1;
+    }
+  }
+  return true;
+}
+
+validAnagram('awesome', 'awesome8');
