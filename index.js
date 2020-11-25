@@ -412,6 +412,10 @@ sumZero(short);
 
 // count unique values challenge
 
+// ================================================
+// SECTION 6
+// ================================================
+
 // Implememt a function called countUniqueValues which accepts a sorted array and counts the unique values in the array.
 
 function countUniqueValues(arr) {
@@ -548,3 +552,20 @@ findLongestSubstring('thecatin')
 // 5.34 divide and conquer
 
 // tremendeously decreases time complexity
+
+// ================================================
+// SECTION 7
+// ================================================
+
+function countDown(num) {
+  if (num === 0) {
+    console.log('all done')
+    return
+  } else {
+    console.log(num.toString())
+    num--;
+    countDown(num)
+  }
+}
+
+countDown(5)
