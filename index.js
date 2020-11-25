@@ -479,22 +479,23 @@ maxSubarraySum([4, 2, 1, 6], 1); // 6
 // SOME EXERCISES
 
 function areThereDuplicates(...args) {
-  const lookup = {}
+  const lookup = {};
   for (let val of args) {
     if (lookup[val]) {
-      lookup[val] +=1
+      lookup[val] += 1;
     } else {
-      lookup[val] = 1
+      lookup[val] = 1;
     }
   }
   for (let num in lookup) {
     if (lookup[num] > 1) {
-      return true
-    } 
-  } return false
+      return true;
+    }
+  }
+  return false;
 }
 
-areThereDuplicates(1,2,3,4,4)
+areThereDuplicates(1, 2, 3, 4, 4);
 
 function averagePair(arr, targ) {
   let left = 0;
@@ -502,17 +503,17 @@ function averagePair(arr, targ) {
   while (left < right) {
     let avg = (arr[left] + arr[right]) / 2;
     if (avg === targ) {
-      return true
+      return true;
     } else if (avg > targ) {
       right--;
     } else {
       left++;
     }
   }
-  return false
+  return false;
 }
 
-averagePair([1,2,3], 2.5)
+averagePair([1, 2, 3], 2.5);
 
 // DON'T UNDERSTAND THE TWO BELOW
 
@@ -521,7 +522,7 @@ function isSubsequence(str1, str2) {
   var j = 0;
   if (!str1) return true;
   while (j < str2.length) {
-    console.log(j, str2)
+    console.log(j, str2);
     if (str2[j] === str1[i]) i++;
     if (i === str1.length) return true;
     j++;
@@ -533,7 +534,7 @@ function findLongestSubstring(str) {
   let longest = 0;
   let seen = {};
   let start = 0;
- 
+
   for (let i = 0; i < str.length; i++) {
     let char = str[i];
     if (seen[char]) {
@@ -547,7 +548,7 @@ function findLongestSubstring(str) {
   return longest;
 }
 
-findLongestSubstring('thecatin')
+findLongestSubstring('thecatin');
 
 // 5.34 divide and conquer
 
@@ -559,13 +560,28 @@ findLongestSubstring('thecatin')
 
 function countDown(num) {
   if (num === 0) {
-    console.log('all done')
-    return
+    console.log('all done');
+    return;
   } else {
-    console.log(num.toString())
+    console.log(num.toString());
     num--;
-    countDown(num)
+    countDown(num);
   }
 }
 
-countDown(5)
+countDown(5);
+
+function factorial(num) {
+  let total = 1;
+  for (let i = num; i > 1; i--) {
+    total *= i;
+  }
+  return total;
+}
+
+function reFactorial(num) {
+  if (num === 1) return 1;
+  return num * reFactorial(num - 1);
+}
+
+reFactorial(5);
