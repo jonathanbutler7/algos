@@ -452,10 +452,7 @@ function maxSubarraySum(arr, num) {
   return max;
 }
 
-maxSubarraySum([1,2,5,2,8,1,5],2) // 10
-maxSubarraySum([4,2,1,6],1) // 6
-
-// sliding window solution: 
+// sliding window solution:
 
 function maxSubarraySum(arr, num) {
   let maxSum = 0;
@@ -469,5 +466,85 @@ function maxSubarraySum(arr, num) {
     tempSum = tempSum - arr[i - num] + arr[i];
     maxSum = Math.max(maxSum, tempSum);
   }
-  return maxSum
+  return maxSum;
 }
+
+maxSubarraySum([1, 2, 5, 2, 8, 1, 5], 2); // 10
+maxSubarraySum([4, 2, 1, 6], 1); // 6
+
+// SOME EXERCISES
+
+function areThereDuplicates(...args) {
+  const lookup = {}
+  for (let val of args) {
+    if (lookup[val]) {
+      lookup[val] +=1
+    } else {
+      lookup[val] = 1
+    }
+  }
+  for (let num in lookup) {
+    if (lookup[num] > 1) {
+      return true
+    } 
+  } return false
+}
+
+areThereDuplicates(1,2,3,4,4)
+
+function averagePair(arr, targ) {
+  let left = 0;
+  let right = arr.length - 1;
+  while (left < right) {
+    let avg = (arr[left] + arr[right]) / 2;
+    if (avg === targ) {
+      return true
+    } else if (avg > targ) {
+      right--;
+    } else {
+      left++;
+    }
+  }
+  return false
+}
+
+averagePair([1,2,3], 2.5)
+
+// DON'T UNDERSTAND THE TWO BELOW
+
+function isSubsequence(str1, str2) {
+  var i = 0;
+  var j = 0;
+  if (!str1) return true;
+  while (j < str2.length) {
+    console.log(j, str2)
+    if (str2[j] === str1[i]) i++;
+    if (i === str1.length) return true;
+    j++;
+  }
+  return false;
+}
+
+function findLongestSubstring(str) {
+  let longest = 0;
+  let seen = {};
+  let start = 0;
+ 
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i];
+    if (seen[char]) {
+      start = Math.max(start, seen[char]);
+    }
+    // index - beginning of substring + 1 (to include current in count)
+    longest = Math.max(longest, i - start + 1);
+    // store the index of the next char so as to not double count
+    seen[char] = i + 1;
+  }
+  return longest;
+}
+
+findLongestSubstring('thecatin')
+
+// 5.34 divide and conquer
+
+// tremendeously decreases time complexity
