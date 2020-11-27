@@ -585,3 +585,34 @@ function reFactorial(num) {
 }
 
 reFactorial(5);
+
+function power(num1, num2) {
+  if (num2 === 0) return 1;
+  return num1 * power(num1, num2 - 1);
+}
+
+// struggled with the one below
+function productOfArray(arr) {
+  if (arr.length === 0) return 1;
+  return arr[0] * productOfArray(arr.slice(1));
+}
+
+productOfArray([1, 2, 3]); // 6
+productOfArray([1, 2, 3, 10]); // 60
+
+function recursiveRange(num) {
+  if (num === 0) return 0;
+  return num + recursiveRange(num - 1);
+}
+
+// struggled with fib
+
+function fib(n) {
+  if (n <= 2) return 1;
+    return fib(n-1) + fib(n-2);
+}
+
+fib(4) // 3
+fib(10) // 55
+fib(28) // 317811
+fib(35) // 9227465
