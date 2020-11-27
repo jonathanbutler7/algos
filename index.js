@@ -613,13 +613,13 @@ function recursiveRange(num) {
 
 function fib(n) {
   if (n <= 2) return 1;
-    return fib(n-1) + fib(n-2);
+  return fib(n - 1) + fib(n - 2);
 }
 
-fib(4) // 3
-fib(10) // 55
-fib(28) // 317811
-fib(35) // 9227465
+fib(4); // 3
+fib(10); // 55
+fib(28); // 317811
+fib(35); // 9227465
 
 // ================================================
 // SECTION 9 Bonus CHALLENGING
@@ -631,14 +631,13 @@ fib(35) // 9227465
 // SECTION 10
 // ================================================
 
-var states = ['Alabama','Alaska','American Samoa','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Federated States of Micronesia','Florida','Georgia','Guam','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Marshall Islands','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Northern Mariana Islands','Ohio','Oklahoma','Oregon','Palau','Pennsylvania','Puerto Rico','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virgin Island','Virginia','Washington','West Virginia','Wisconsin','Wyoming']
-
-const lowers = (states.map(state => state.toLowerCase()))
+const lowers = states.map((state) => state.toLowerCase());
 
 function linearSearch(arr, val) {
   for (i = 0; i < arr.length; i++) {
     if (arr[i] === val.toLowerCase()) return i;
-  } return -1;
+  }
+  return -1;
 }
 
-linearSearch(lowers, 'texas')
+linearSearch(lowers, 'texas');
