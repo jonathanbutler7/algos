@@ -708,3 +708,24 @@ function naiveSearch(long, short) {
 }
 
 naiveSearch('lorie loledlol', 'lol');
+
+
+
+// ================================================
+// SECTION 10
+// ================================================
+
+// sorting algorithms animations website
+
+function compare(num1, num2) {
+  return num1 - num2; // sort ascending
+  // return num2 - num1 // sort descending
+}
+
+[6, 4, 5, 10].sort(compare);
+
+function compareByLen(str1, str2) {
+  return str1.length - str2.length;
+}
+
+['Butler', 'Jonathan', 'Data Structures', 'Algorithms'].sort(compareByLen);
