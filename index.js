@@ -728,6 +728,10 @@ function compareByLen(str1, str2) {
 
 ['Butler', 'Jonathan', 'Data Structures', 'Algorithms'].sort(compareByLen);
 
+// ================================================
+// SECTION 11
+// ================================================
+
 // BUBBLE SORT
 
 // visualgo.net
@@ -772,3 +776,32 @@ function bubbleSort(arr) {
 
 const arr = [37, 45, 29, 8, 12, 88, -3];
 bubbleSort(arr);
+
+// ================================================
+// SECTION 12
+// ================================================
+
+// selection sort first places small values into sorted position
+// bubble sort first places large values into sorted position
+
+[5, 3, 4, 1, 2];
+
+function selectionSort(arr) {
+  for (var i = 0; i < arr.length; i++) {
+    var lowest = i;
+    for (var j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[lowest]) {
+        lowest = j
+      }
+    }
+    console.log(arr)
+    console.log('swapping!')
+    var temp = arr[i];
+    arr[i] = arr[lowest];
+    arr[lowest] = temp;
+    console.log(arr)
+  } 
+  return arr;
+}
+
+selectionSort([34,22,10,19,17,1])
