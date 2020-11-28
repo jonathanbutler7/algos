@@ -628,7 +628,7 @@ fib(35); // 9227465
 // COME BACK TO THIS ONE BEACUSE THEY ARE SO HARD
 
 // ================================================
-// SECTION 10
+// SECTION 10 SEARCHING ALGORITHMS
 // ================================================
 
 const lowers = states.map((state) => state.toLowerCase());
@@ -710,7 +710,7 @@ function naiveSearch(long, short) {
 naiveSearch('lorie loledlol', 'lol');
 
 // ================================================
-// SECTION 10
+// SECTION 11 BUBBLE SORT ALGORITHMS
 // ================================================
 
 // sorting algorithms animations website
@@ -729,7 +729,7 @@ function compareByLen(str1, str2) {
 ['Butler', 'Jonathan', 'Data Structures', 'Algorithms'].sort(compareByLen);
 
 // ================================================
-// SECTION 11
+// SECTION 11 BUBBLE SORT
 // ================================================
 
 // BUBBLE SORT
@@ -778,7 +778,7 @@ const arr = [37, 45, 29, 8, 12, 88, -3];
 bubbleSort(arr);
 
 // ================================================
-// SECTION 12
+// SECTION 12 SELECTION SORT
 // ================================================
 
 // selection sort first places small values into sorted position
@@ -794,15 +794,16 @@ function selectionSort(arr) {
         lowest = j;
       }
     }
-    console.log(arr);
-    console.log('swapping!');
+    // console.log(arr);
+    // console.log('swapping!');
     var temp = arr[i];
     arr[i] = arr[lowest];
     arr[lowest] = temp;
-    console.log(arr);
+    // console.log(arr);
   }
   return arr;
 }
+
 // optimized
 function selectionSort(arr) {
   for (var i = 0; i < arr.length; i++) {
@@ -813,15 +814,27 @@ function selectionSort(arr) {
       }
     }
     if (i !== lowest) {
-      console.log(arr);
-      console.log(i, lowest);
+      // console.log(arr);
+      // console.log(i, lowest);
       var temp = arr[i];
       arr[i] = arr[lowest];
       arr[lowest] = temp;
-      console.log(arr);
+      // console.log(arr);
     }
   }
   return arr;
 }
 
 selectionSort([34, 22, 10, 19, 17, 1]);
+
+// ================================================
+// SECTION 13 INSERTION SORT
+// ================================================
+
+// builds up the sort by gradually creating a larger left half which is always sorted
+
+[5, 3, 4, 1, 2];
+
+// start by picking the second elem in the array bc the first is already 'sorted'
+// compare second element with one before it and swap if necessary
+// continue to the next element & if it's in the incorrect order iterate through the sorted portion to place the element in the correct place
