@@ -676,3 +676,35 @@ function binarySearch(arr, elem) {
 
 const arr = [1, 3, 4, 6, 8, 9, 11, 12, 15, 16, 17, 18, 19];
 binarySearch(arr, 19);
+
+// longer solution
+// function naiveSearch(long, short) {
+//   var count = 0;
+//   for (var i = 0; i < long.length; i++) {
+//     for (var j = 0; j < short.length; j++) {
+//       console.log(short[j], long[i + j])
+//       if (short[j] !== long[i+j]) {
+//         console.log('break')
+//         break
+//       }
+//       if (j === short.length - 1) {
+//         console.log('found one')
+//         count++;
+//       }
+//     }
+//   } return count;
+// }
+
+// shorter solution
+function naiveSearch(long, short) {
+  var count = 0;
+  for (var i = 0; i < long.length; i++) {
+    for (var j = 0; j < short.length; j++) {
+      if (short[j] !== long[i + j]) break;
+      if (j === short.length - 1) count++;
+    }
+  }
+  return count;
+}
+
+naiveSearch('lorie loledlol', 'lol');
