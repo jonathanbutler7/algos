@@ -627,6 +627,13 @@ fib(35); // 9227465
 // ================================================
 // COME BACK TO THIS ONE BEACUSE THEY ARE SO HARD
 
+isPalindrome(str) {
+ // if the length of str is 1 return true;
+ // if length is 2 and both letters are the same return true
+ // if first letter and last letter are the same, run isPalindrome again with first and last letters cut off
+ // return false 
+}
+
 // ================================================
 // SECTION 10 SEARCHING ALGORITHMS
 // ================================================
