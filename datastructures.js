@@ -180,6 +180,19 @@ class SinglyLinkedList {
     }
     return false;
   }
+  insert(idx, val) { // add a node to list at specific pos.
+    if (idx < 0 || idx > this.length) return false;
+    if (idx === this.length)  return !!this.push(val); // the !! coerces the value to a boolean
+    if (idx === 0) return !!this.unshift(val);
+    let newNode = new Node(val)
+    let prev = this.get(idx - 1)
+    console.log(prev)
+    var temp = prev.next;
+    prev.next = newNode;
+    newNode.next = temp;
+    this.length += 1;
+    return true;
+  }
 }
 
 var list = new SinglyLinkedList();
