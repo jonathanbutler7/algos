@@ -193,6 +193,16 @@ class SinglyLinkedList {
     this.length += 1;
     return true;
   }
+  remove(idx) { //remove a node from list at specific post.
+    if (idx >= this.length || idx < 0) return undefined;
+    if (idx === 0) return this.shift();
+    if (idx === this.length - 1) return this.pop();
+    let prev = this.get(index - 1);
+    let removed = prev.next;
+    prev.next = removed.next;
+    this.length--;
+    return removed
+  }
 }
 
 var list = new SinglyLinkedList();
