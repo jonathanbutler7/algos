@@ -172,6 +172,14 @@ class SinglyLinkedList {
     }
     return current;
   }
+  set(idx, val) { // change value of node based on pos in list
+    let got = this.get(idx);
+    if (got) {
+      got.val = val;
+      return true;
+    }
+    return false;
+  }
 }
 
 var list = new SinglyLinkedList();
