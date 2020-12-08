@@ -160,7 +160,17 @@ class SinglyLinkedList {
       this.head = newNode;
     }
     this.length += 1
-    return list
+    return this;
+  }
+  get(idx) {
+    if (idx < 0 || idx >= this.length) return null;
+    var counter = 0;
+    var current = this.head;
+    while (counter !== idx) {
+      current = current.next;
+      counter++;
+    }
+    return current;
   }
 }
 
