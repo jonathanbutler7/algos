@@ -123,7 +123,7 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
-  pop() {
+  pop() { // removes list tail. complicated because it has to find the item before the end of the list 
     if (!this.head) return undefined;
     let current = this.head;
     let newTail = current;
@@ -134,14 +134,33 @@ class SinglyLinkedList {
     this.tail = newTail;
     this.tail.next = null;
     this.length -= 1;
+    if (this.length === 0) { // edge case for if there are no items in the list
+      this.head = null;
+      this.tail = null;
+    }
     return current;
   }
-  shift() {
+  shift() { // removes list head 
     if (!this.head) return undefined;
     var currentHead = this.head;
     this.head = currentHead.next;
     this.length--;
-    return currentHead
+    if (this.length === 0) {
+      this.tail = null;
+    }
+    return currentHead;
+  }
+  unshift(val) { // add node to beginning of list
+    var newNode = new Node(val);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length += 1
+    return list
   }
 }
 
