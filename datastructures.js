@@ -123,7 +123,8 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
-  pop() { // removes list tail. complicated because it has to find the item before the end of the list 
+  pop() {
+    // removes list tail. complicated because it has to find the item before the end of the list
     if (!this.head) return undefined;
     let current = this.head;
     let newTail = current;
@@ -134,13 +135,15 @@ class SinglyLinkedList {
     this.tail = newTail;
     this.tail.next = null;
     this.length -= 1;
-    if (this.length === 0) { // edge case for if there are no items in the list
+    if (this.length === 0) {
+      // edge case for if there are no items in the list
       this.head = null;
       this.tail = null;
     }
     return current;
   }
-  shift() { // removes list head 
+  shift() {
+    // removes list head
     if (!this.head) return undefined;
     var currentHead = this.head;
     this.head = currentHead.next;
@@ -150,7 +153,8 @@ class SinglyLinkedList {
     }
     return currentHead;
   }
-  unshift(val) { // add node to beginning of list
+  unshift(val) {
+    // add node to beginning of list
     var newNode = new Node(val);
     if (!this.head) {
       this.head = newNode;
@@ -159,7 +163,7 @@ class SinglyLinkedList {
       newNode.next = this.head;
       this.head = newNode;
     }
-    this.length += 1
+    this.length += 1;
     return this;
   }
   get(idx) {
@@ -172,7 +176,8 @@ class SinglyLinkedList {
     }
     return current;
   }
-  set(idx, val) { // change value of node based on pos in list
+  set(idx, val) {
+    // change value of node based on pos in list
     let got = this.get(idx);
     if (got) {
       got.val = val;
@@ -180,20 +185,22 @@ class SinglyLinkedList {
     }
     return false;
   }
-  insert(idx, val) { // add a node to list at specific pos.
+  insert(idx, val) {
+    // add a node to list at specific pos.
     if (idx < 0 || idx > this.length) return false;
-    if (idx === this.length)  return !!this.push(val); // the !! coerces the value to a boolean
+    if (idx === this.length) return !!this.push(val); // the !! coerces the value to a boolean
     if (idx === 0) return !!this.unshift(val);
-    let newNode = new Node(val)
-    let prev = this.get(idx - 1)
-    console.log(prev)
+    let newNode = new Node(val);
+    let prev = this.get(idx - 1);
+    console.log(prev);
     var temp = prev.next;
     prev.next = newNode;
     newNode.next = temp;
     this.length += 1;
     return true;
   }
-  remove(idx) { //remove a node from list at specific post.
+  remove(idx) {
+    //remove a node from list at specific post.
     if (idx >= this.length || idx < 0) return undefined;
     if (idx === 0) return this.shift();
     if (idx === this.length - 1) return this.pop();
@@ -201,7 +208,17 @@ class SinglyLinkedList {
     let removed = prev.next;
     prev.next = removed.next;
     this.length--;
-    return removed
+    return removed;
+  }
+  reverse() {}
+  print() {
+    var arr = [];
+    var current = this.head;
+    while (current) {
+      arr.push(current.val);
+      current = current.next;
+    }
+    console.log('here it is', arr);
   }
 }
 
