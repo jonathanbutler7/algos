@@ -192,7 +192,6 @@ class SinglyLinkedList {
     if (idx === 0) return !!this.unshift(val);
     let newNode = new Node(val);
     let prev = this.get(idx - 1);
-    console.log(prev);
     var temp = prev.next;
     prev.next = newNode;
     newNode.next = temp;
@@ -210,7 +209,19 @@ class SinglyLinkedList {
     this.length--;
     return removed;
   }
-  reverse() {}
+  reverse() {
+    var node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+    var next;
+    var prev = null;
+    for (var i = 0; i < this.length; i++) {
+      next = node.next;
+      node.next = prev;
+      prev = node;
+      node = next;
+    }
+  }
   print() {
     var arr = [];
     var current = this.head;
