@@ -229,10 +229,15 @@ class SinglyLinkedList {
       arr.push(current.val);
       current = current.next;
     }
-    console.log('here it is', arr);
   }
 }
 
 var list = new SinglyLinkedList();
-list.push('hi');
-list.push('bye');
+list.push(1);
+list.push(2);
+list.push(5);
+list.push(6);
+list.insert(0, 44)
+list.print()
+list.reverse()
+list.print()
