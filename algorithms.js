@@ -475,6 +475,62 @@ function maxSubarraySum(arr, num) {
 
 maxSubarraySum([1, 2, 5, 2, 8, 1, 5], 2); // 10
 maxSubarraySum([4, 2, 1, 6], 1); // 6
+// in the example below, i walk through each iteration of the loop and console.log it out so i can understand it better. i'm still confused about PEMDAS;
+
+function maxSubarraySum(arr, num) {
+  let maxSum = 0;
+  let tempSum = 0;
+  if (arr.length < num) return null;
+  for (let i = 0; i < num; i++) {
+    console.log('arr[i]', arr[i])
+    maxSum += arr[i];
+    console.log('maxSum',maxSum)
+  }
+  
+  tempSum = maxSum;
+  for (let i = num; i < arr.length; i++) {
+    tempSum = tempSum - arr[i - num] + arr[i];
+    //    i=2    3    -      1       +    3     = 5
+    //    i=3    5    -      2       +    4     = 7
+    //    i=4    7    -      3       +    5     = 9
+    //    i=5    9    -      4       +   -1     = 4
+    //    i=6    4    -      5       +   -2     = -3
+    // console.log(arr[i-num], arr[i])
+    console.log('tempSum',tempSum)
+    maxSum = Math.max(maxSum, tempSum)
+    console.log('maxSum', maxSum)
+  }
+  return maxSum;
+}
+let arr = [1,2,3,4,5,-1,-2]
+maxSubarraySum(arr, 2)
+
+function maxSubarraySum(arr, num) {
+  let maxSum = 0;
+  let tempSum = 0;
+  if (arr.length < num) return null;
+  for (let i = 0; i < num; i++) {
+    // console.log('arr[i]', arr[i])
+    maxSum += arr[i];
+    // console.log('maxSum',maxSum)
+  }
+  
+  tempSum = maxSum;
+  for (let i = num; i < arr.length; i++) {
+    tempSum = tempSum - arr[i - num] + arr[i];
+    //    i=3    6    -      1       +    4     = 9
+    //    i=4    9    -      2       +    5     = 12
+    //    i=5    12   -      3       +   -1     = 8
+    //    i=6    8    -      4       +   -2     = 6
+    console.log(arr[i-num], arr[i])
+    console.log('tempSum',tempSum)
+    maxSum = Math.max(maxSum, tempSum)
+    // console.log('maxSum', maxSum)
+  }
+  return maxSum;
+}
+let arr = [1,2,3,4,5,-1,-2]
+maxSubarraySum(arr, 3)
 
 // SOME EXERCISES
 
