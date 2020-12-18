@@ -571,20 +571,23 @@ function averagePair(arr, targ) {
 
 averagePair([1, 2, 3], 2.5);
 
-// DON'T UNDERSTAND THE TWO BELOW
 
 function isSubsequence(str1, str2) {
   var i = 0;
   var j = 0;
   if (!str1) return true;
   while (j < str2.length) {
-    console.log(j, str2);
+    console.log(str2[j], str1[i]) 
     if (str2[j] === str1[i]) i++;
     if (i === str1.length) return true;
     j++;
   }
   return false;
 }
+isSubsequence('abc', 'abraadabrac')
+// this solution compares the first letter of str1 and str2. if they're equal it moves to the second letter of each string. if the letters are not equal, it stays on the same letter in str1 and keeps iterating through str2 until it finds another match.
+// if it reaches the end of str1 and has found a match for each letter in str2, it returns true. if it has reached the end of str2 but not the end of str1 it returns false.
+// DON'T UNDERSTAND THE ONE BELOW
 
 function findLongestSubstring(str) {
   let longest = 0;
