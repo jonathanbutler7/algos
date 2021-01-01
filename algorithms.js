@@ -579,8 +579,8 @@ function isSubsequence(str1, str2) {
   while (j < str2.length) {
     console.log(str2[j], str1[i]) 
     if (str2[j] === str1[i]) i++;
-    if (i === str1.length) return true;
     j++;
+    if (i === str1.length) return true;
   }
   return false;
 }
@@ -685,6 +685,39 @@ fib(35); // 9227465
 // Recursion Problems
 // ================================================
 // COME BACK TO THIS ONE BEACUSE THEY ARE SO HARD
+
+// i made up my own recursion problems
+
+function interpret(command, result = '') {
+  if (command.length === 0) return result;
+  if (command[0] === 'G') result += command[0] ;
+  if (command[0] ==='(' && command[1] === ')') result += 'o';
+  if (command[0] ==='(' && command[1] === 'a') result += 'al';
+  return interpret(command.slice(1), result)
+}
+
+interpret("G()()()()(al)")
+let str = "G()()()()(al)"
+function returnEvens(arr, result = []) {
+  if (arr.length === 0) return result;
+  if (arr[0] % 2 == 0) result.push(arr[0]);
+  return returnEvens(arr.slice(1), result);
+}
+
+returnEvens([1,4,3,2,5,6])
+
+const arr = [12,45,76,43,76,98,5,31,4];
+
+function pushRecursively(arr, len = 0, even = []) {
+   if (len < arr.length) {
+      if (arr[len] % 2 === 0) { 
+        even.push(arr[len])
+      }
+      return pushRecursively(arr, ++len, even);
+   };
+   return even
+};
+pushRecursively(arr);
 
 function isPalindrome(str) {
  // if the length of str is 1 return true;
