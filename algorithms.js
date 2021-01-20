@@ -295,8 +295,6 @@ function isAlphaNumeric(char) {
 
 // can often avoid the need for nested loops of O(n^2) operations with arrays/strings
 
-// Write a function called same which accepts two arrays and the function should return true if every value in the array has its corresponding value squared in the second array. The frequency of values must be the same.
-
 same([1, 2, 3], [4, 1, 9]); // true
 same([1, 2, 3], [4, 9]); // false
 same([1, 2, 3], [4, 4, 1]); // false (must be same frequency)
@@ -311,7 +309,6 @@ function same(arr1, arr2) {
     if (correctIndex === -1) {
       return false;
     }
-    console.log(arr2);
     arr2.splice(correctIndex, 1);
   }
   return true;
@@ -323,9 +320,7 @@ same([1, 2, 3, 2], [4, 1, 4, 9]);
 // better approach
 
 function same(arr1, arr2) {
-  if (arr1.length !== arr2.length) {
-    return false;
-  }
+  if (arr1.length !== arr2.length) return false;
   let frequencyCounter1 = {};
   let frequencyCounter2 = {};
   for (let val of arr1) {
@@ -350,15 +345,12 @@ function same(arr1, arr2) {
 // given 2 strings, write a function to determine if the second string is an anagram of the first.
 
 function validAnagram(one, two) {
-  if (one.length !== two.length) {
-    return false;
-  }
+  if (one.length !== two.length) return false;
   const lookup = {};
   for (let val of one) {
     let letter = val;
     lookup[letter] ? (lookup[letter] += 1) : (lookup[letter] = 1);
   }
-
   for (let val of two) {
     let letter = val;
     if (!lookup[letter]) {
@@ -482,11 +474,11 @@ function maxSubarraySum(arr, num) {
   let tempSum = 0;
   if (arr.length < num) return null;
   for (let i = 0; i < num; i++) {
-    console.log('arr[i]', arr[i])
+    console.log('arr[i]', arr[i]);
     maxSum += arr[i];
-    console.log('maxSum',maxSum)
+    console.log('maxSum', maxSum);
   }
-  
+
   tempSum = maxSum;
   for (let i = num; i < arr.length; i++) {
     tempSum = tempSum - arr[i - num] + arr[i];
@@ -496,14 +488,14 @@ function maxSubarraySum(arr, num) {
     //    i=5    9    -      4       +   -1     = 4
     //    i=6    4    -      5       +   -2     = -3
     // console.log(arr[i-num], arr[i])
-    console.log('tempSum',tempSum)
-    maxSum = Math.max(maxSum, tempSum)
-    console.log('maxSum', maxSum)
+    console.log('tempSum', tempSum);
+    maxSum = Math.max(maxSum, tempSum);
+    console.log('maxSum', maxSum);
   }
   return maxSum;
 }
-let arr = [1,2,3,4,5,-1,-2]
-maxSubarraySum(arr, 2)
+let arr = [1, 2, 3, 4, 5, -1, -2];
+maxSubarraySum(arr, 2);
 
 function maxSubarraySum(arr, num) {
   let maxSum = 0;
@@ -514,7 +506,7 @@ function maxSubarraySum(arr, num) {
     maxSum += arr[i];
     // console.log('maxSum',maxSum)
   }
-  
+
   tempSum = maxSum;
   for (let i = num; i < arr.length; i++) {
     tempSum = tempSum - arr[i - num] + arr[i];
@@ -522,15 +514,15 @@ function maxSubarraySum(arr, num) {
     //    i=4    9    -      2       +    5     = 12
     //    i=5    12   -      3       +   -1     = 8
     //    i=6    8    -      4       +   -2     = 6
-    console.log(arr[i-num], arr[i])
-    console.log('tempSum',tempSum)
-    maxSum = Math.max(maxSum, tempSum)
+    console.log(arr[i - num], arr[i]);
+    console.log('tempSum', tempSum);
+    maxSum = Math.max(maxSum, tempSum);
     // console.log('maxSum', maxSum)
   }
   return maxSum;
 }
-let arr = [1,2,3,4,5,-1,-2]
-maxSubarraySum(arr, 3)
+let arr = [1, 2, 3, 4, 5, -1, -2];
+maxSubarraySum(arr, 3);
 
 // SOME EXERCISES
 
@@ -571,20 +563,19 @@ function averagePair(arr, targ) {
 
 averagePair([1, 2, 3], 2.5);
 
-
 function isSubsequence(str1, str2) {
   var i = 0;
   var j = 0;
   if (!str1) return true;
   while (j < str2.length) {
-    console.log(str2[j], str1[i]) 
+    console.log(str2[j], str1[i]);
     if (str2[j] === str1[i]) i++;
     j++;
     if (i === str1.length) return true;
   }
   return false;
 }
-isSubsequence('abc', 'abraadabrac')
+isSubsequence('abc', 'abraadabrac');
 // this solution compares the first letter of str1 and str2. if they're equal it moves to the second letter of each string. if the letters are not equal, it stays on the same letter in str1 and keeps iterating through str2 until it finds another match.
 // if it reaches the end of str1 and has found a match for each letter in str2, it returns true. if it has reached the end of str2 but not the end of str1 it returns false.
 // DON'T UNDERSTAND THE ONE BELOW
@@ -690,45 +681,45 @@ fib(35); // 9227465
 
 function interpret(command, result = '') {
   if (command.length === 0) return result;
-  if (command[0] === 'G') result += command[0] ;
-  if (command[0] ==='(' && command[1] === ')') result += 'o';
-  if (command[0] ==='(' && command[1] === 'a') result += 'al';
-  return interpret(command.slice(1), result)
+  if (command[0] === 'G') result += command[0];
+  if (command[0] === '(' && command[1] === ')') result += 'o';
+  if (command[0] === '(' && command[1] === 'a') result += 'al';
+  return interpret(command.slice(1), result);
 }
 
-interpret("G()()()()(al)")
-let str = "G()()()()(al)"
+interpret('G()()()()(al)');
+let str = 'G()()()()(al)';
 function returnEvens(arr, result = []) {
   if (arr.length === 0) return result;
   if (arr[0] % 2 == 0) result.push(arr[0]);
   return returnEvens(arr.slice(1), result);
 }
 
-returnEvens([1,4,3,2,5,6])
+returnEvens([1, 4, 3, 2, 5, 6]);
 
-const arr = [12,45,76,43,76,98,5,31,4];
+const arr = [12, 45, 76, 43, 76, 98, 5, 31, 4];
 
 function pushRecursively(arr, len = 0, even = []) {
-   if (len < arr.length) {
-      if (arr[len] % 2 === 0) { 
-        even.push(arr[len])
-      }
-      return pushRecursively(arr, ++len, even);
-   };
-   return even
-};
+  if (len < arr.length) {
+    if (arr[len] % 2 === 0) {
+      even.push(arr[len]);
+    }
+    return pushRecursively(arr, ++len, even);
+  }
+  return even;
+}
 pushRecursively(arr);
 
 function isPalindrome(str) {
- // if the length of str is 1 return true;
- // if length is 2 and both letters are the same return true
- // if first letter and last letter are the same, run isPalindrome again with first and last letters cut off
- // return false 
+  // if the length of str is 1 return true;
+  // if length is 2 and both letters are the same return true
+  // if first letter and last letter are the same, run isPalindrome again with first and last letters cut off
+  // return false
 }
 
 function capitalizeWords(arr) {
   // BASE: if arr.length is 1, return first element of the array converted to upper case
-  // 
+  //
 }
 
 // ================================================
