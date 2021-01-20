@@ -687,8 +687,9 @@ function interpret(command, result = '') {
   return interpret(command.slice(1), result);
 }
 
-interpret('G()()()()(al)');
-let str = 'G()()()()(al)';
+interpret("G()()()()(al)")
+let str = "G()()()()(al)"
+
 function returnEvens(arr, result = []) {
   if (arr.length === 0) return result;
   if (arr[0] % 2 == 0) result.push(arr[0]);
@@ -698,6 +699,15 @@ function returnEvens(arr, result = []) {
 returnEvens([1, 4, 3, 2, 5, 6]);
 
 const arr = [12, 45, 76, 43, 76, 98, 5, 31, 4];
+
+function reverseArray(arr, res = []) {
+  if (arr.length === 0) return res;
+  res.push(arr[arr.length - 1])
+  let removed = arr.pop()
+  return reverseArray(arr, res)
+}
+const arr = [9,1,2,3,4,5,6]
+reverseArray(arr)
 
 function pushRecursively(arr, len = 0, even = []) {
   if (len < arr.length) {
