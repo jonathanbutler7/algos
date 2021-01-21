@@ -542,6 +542,15 @@ function areThereDuplicates(...args) {
   }
   return false;
 }
+// below is my own solution for the duplicates problem
+function duplicates(arr) {
+  let counter = {};
+  for (i = 0; i < arr.length; i++) {
+    if (counter[arr[i]]) return true;
+    counter[arr[i]] = 1;
+  }
+  return false
+}
 
 areThereDuplicates(1, 2, 3, 4, 4);
 
