@@ -559,15 +559,13 @@ function averagePair(arr, n) {
 
 averagePair([1, 2, 3], 2.5);
 
-function isSubsequence(str1, str2) {
-  var i = 0;
-  var j = 0;
-  if (!str1) return true;
-  while (j < str2.length) {
-    console.log(str2[j], str1[i]);
-    if (str2[j] === str1[i]) i++;
+function isSubsequence(s1, s2) {
+  let i = 0,
+    j = 0;
+  while (j < s2.length) {
+    if (s1[i] === s2[j]) i++;
     j++;
-    if (i === str1.length) return true;
+    if (i === s1.length) return true;
   }
   return false;
 }
