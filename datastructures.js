@@ -241,3 +241,12 @@ list.insert(0, 44)
 list.print()
 list.reverse()
 list.print()
+
+
+// ================================================
+// SECTION 18 HASH TABLES
+// ================================================
+
+// like arrays in that they are key value pairs, but the keys are not ordered
+
+// a hash table is fast for adding/finding/removing values;
