@@ -237,11 +237,10 @@ list.push(1);
 list.push(2);
 list.push(5);
 list.push(6);
-list.insert(0, 44)
-list.print()
-list.reverse()
-list.print()
-
+list.insert(0, 44);
+list.print();
+list.reverse();
+list.print();
 
 // ================================================
 // SECTION 18 HASH TABLES
@@ -250,3 +249,32 @@ list.print()
 // like arrays in that they are key value pairs, but the keys are not ordered
 
 // a hash table is fast for adding/finding/removing values;
+
+// a hash function takes data of an arbitrary size and fits it into data of a fixed size
+
+// what makes a good hash function?
+
+// 1. fast (aka constant time)
+// 2. doesn't cluster outputs, but distributes uniformly
+//    you may have collisions, and that's ok, but you want it to be spread out evenly
+// 3. Deterministic: same input yields same output
+
+// 'pink'.charCodeAt(1) - 96 -> gives you alphabet ranking
+
+function hash(str, arrayLen) {
+  let total = 0;
+  for (i = 0; i < str.length; i++) {
+    let value = str.charCodeAt(i) - 96;
+    total = (total + value) % arrayLen;
+  }
+  return total;
+}
+
+hash('cyan', 10);
+
+// the above hash function takes a string of any length and returns a number between 1 and 10
+
+// problems with the above function:
+// 1. Only hashes strings(we won't worry about this)
+// 2. Not contsant time - linear in key length
+// 3. Could be more random
