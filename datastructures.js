@@ -98,13 +98,6 @@ first.next.next = new Node('how');
 first.next.next.next = new Node('are');
 first.next.next.next.next = new Node('you');
 
-class Node {
-  constructor(val) {
-    this.val = val;
-    this.next = null;
-  }
-}
-
 class SinglyLinkedList {
   constructor() {
     this.head = null;
@@ -278,3 +271,5 @@ hash('cyan', 10);
 // 1. Only hashes strings(we won't worry about this)
 // 2. Not contsant time - linear in key length
 // 3. Could be more random
+
+// why use prime numbers in hash functinos? it's complicated, but basically you get fewer collisions when the length of the hash table is prime. 
