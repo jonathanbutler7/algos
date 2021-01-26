@@ -272,4 +272,4 @@ hash('cyan', 10);
 // 2. Not contsant time - linear in key length
 // 3. Could be more random
 
-// why use prime numbers in hash functinos? it's complicated, but basically you get fewer collisions when the length of the hash table is prime. 
+// why use prime numbers in hash functinos? it's complicated, but basically you get fewer collisions when the length of the hash table is prime.
