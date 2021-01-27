@@ -285,6 +285,23 @@ function hash(key, arrayLen) {
   return total;
 }
 
-// Separate chaining: at each index in our array we store values using a more sophisticated data structure (e.g. an array or a linked list)
+// Separate chaining: at each index in our array we store values using a more sophisticated data structure (e.g. an array or a linked list). more than one thing at each in a nested structure.
 
-// Linear probing involves storing one thing at one position
+// Linear probing: only store one piece of data at each position. when we find a collision, search ahead through the array and find the next empty slot. prevents you from storing multiple things in one index in a nested structure;
+
+class HashTable {
+  constructor(size = 53) {
+    this.keyMap = new Array(size);
+  }
+
+  _hash(key) {
+    let total = 0;
+    let WEIRD_PRIME = 31;
+    for (let i = 0; i < Math.min(key.length, 100); i++) {
+      let char = key[i];
+      let value = char.charCodeAt(0) - 96;
+      total = (total * WEIRD_PRIME + value) % arrayLen;
+    }
+    return total;
+  }
+}
