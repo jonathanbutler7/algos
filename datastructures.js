@@ -325,6 +325,23 @@ class HashTable {
     }
     return 'nope';
   }
+  keys() {
+    // loops through the hash table array and returns array of keys in table
+    
+  }
+
+  values() {
+    // loops through hash table array and returns array of values in table
+    let valuesArr = [];
+    for (let i = 0; i < this.keyMap.length; i++) {
+      if (this.keyMap[i]) {
+        for (let j = 0; j < this.keyMap[i].length; j++) {
+          valuesArr.push(this.keyMap[i][j][1])
+        }
+      }
+    }
+    return valuesArr;
+  }
 }
 
 let ht = new HashTable();
