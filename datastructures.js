@@ -272,4 +272,19 @@ hash('cyan', 10);
 // 2. Not contsant time - linear in key length
 // 3. Could be more random
 
-// why use prime numbers in hash functinos? it's complicated, but basically you get fewer collisions when the length of the hash table is prime.
+// why use prime numbers in hash functions? it's complicated, but basically you get fewer collisions when the length of the hash table is prime.
+
+function hash(key, arrayLen) {
+  let total = 0;
+  let WEIRD_PRIME = 31;
+  for (let i = 0; i < Math.min(key.length, 100); i++) {
+    let char = key[i];
+    let value = char.charCodeAt(0) - 96;
+    total = (total * WEIRD_PRIME + value) % arrayLen;
+  }
+  return total;
+}
+
+// Separate chaining: at each index in our array we store values using a more sophisticated data structure (e.g. an array or a linked list)
+
+// Linear probing involves storing one thing at one position
