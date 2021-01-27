@@ -304,4 +304,28 @@ class HashTable {
     }
     return total;
   }
+
+  set(key, value) {
+    let index = this._hash(key);
+    if (!this.keyMap[index]) {
+      this.keyMap[index] = [];
+    }
+    this.keyMap[index].push([key, value]);
+    return index;
+  }
+
+  get() {}
 }
+
+// SET / GET
+
+// SET
+// 1. accepts a key and value
+// 2. hashes the key
+// 3. stores the key-value pair in hash table array via separate chaining (in a nested structure even if there is nothing there)
+
+// GET
+// 1. accepts key
+// 2. hashes the key
+// 3. Retrives the key-value pair
+// 4. If the key isn't found, returns undefined
