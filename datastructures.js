@@ -368,6 +368,10 @@ ht.keyMap;
 ht.get('freh');
 ht.get('what');
 
+ht.keys().forEach(key => {
+  console.log(ht.get(key))
+});
+
 // SET / GET
 
 // SET
