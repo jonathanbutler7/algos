@@ -27,19 +27,18 @@ getTriples('helllooooo');
 // my friend scott's solution to the twosum problem
 
 function twoSum(nums, target) {
-    const numIndices = {};
-    for (let i = 0; i < nums.length; i++) {
-      let num = nums[i];
-      let complement = target - num;
-      let indexOfComplement = numIndices[complement];
-      if (indexOfComplement !== undefined) {
-        return [indexOfComplement, i];
-      } else {
-        numIndices[num] = i;
-      }
+  const numIndices = {};
+  for (let i = 0; i < nums.length; i++) {
+    let num = nums[i];
+    let complement = target - num;
+    let indexOfComplement = numIndices[complement];
+    if (indexOfComplement !== undefined) {
+      return [indexOfComplement, i];
+    } else {
+      numIndices[num] = i;
     }
-    return [];
-  };
-  
-  
-  twoSum([1,2,3,4,5,6], 7)
+  }
+  return [];
+}
+
+twoSum([1, 2, 3, 4, 5, 6], 7);
