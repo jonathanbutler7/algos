@@ -14,12 +14,13 @@ function isPalindrome(str) {
   return false;
 }
 
-function twoSum(arr, target) {
-  const numIndices = {};
-  for (let i = 0; i < arr.length; i++) {
-    let complement = target - nums[i];
-    if (numIndices[complement]) return [numIndices[complement], i];
-    numIndices[arr[i]] = i;
+function twoSum(nums, target) {
+  const numsIndices = {};
+  for (let i = 0; i < nums.length; i++) {
+    let num = nums[i];
+    let complement = target - num;
+    if (numsIndices[complement]) return [numsIndices[complement], i];
+    numsIndices[num] = i;
   }
   return [];
 }
