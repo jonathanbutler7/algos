@@ -19,6 +19,7 @@ function isPalindrome(str) {
 }
 
 isPalindrome('racecar'); // true
+
 // ====================================
 // FREQUENCY COUNTER
 // ====================================
@@ -81,9 +82,7 @@ function hasTriples(str) {
   let startingIndex = 0;
   for (let i = 1; i < str.length + 1; i++) {
     if (str[i] !== current) {
-      if (i - startingIndex > 2) {
-        indices.push([startingIndex, i - 1]);
-      }
+      if (i - startingIndex > 2) indices.push([startingIndex, i - 1]);
       current = str[i];
       startingIndex = i;
     }
