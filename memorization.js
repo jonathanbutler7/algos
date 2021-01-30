@@ -15,14 +15,35 @@ function isPalindrome(str) {
 }
 
 function twoSum(nums, target) {
-  const numsIndices = {};
+  const numIndices = {};
   for (let i = 0; i < nums.length; i++) {
     let num = nums[i];
     let complement = target - num;
-    if (numsIndices[complement] !== undefined) return [numsIndices[complement], i];
-    numsIndices[num] = i;
+    let indexOfComplement = numIndices[complement];
+    if (indexOfComplement !== undefined) {
+      return [indexOfComplement, i];
+    } else {
+      numIndices[num] = i;
+    }
   }
   return [];
 }
 
-twoSum([1, 2, 3, 4, 5, 6], 11);
+twoSum([1, 2, 3, 4, 5, 6], 7);
+
+function isAnagram(s1, s2) {
+  const lookup = {};
+  if (s1.length !== s2.length) return false;
+  for (let i = 0; i < s1.length; i++) {
+    let letter = s1[i];
+    lookup[letter] ? lookup[letter]++ : (lookup[letter] = 1);
+  }
+  for (let i = 0; i < s2.length; i++) {
+    let letter = s2[i];
+    if (!lookup[letter]) return false;
+    lookup[letter]--;
+  }
+  return true;
+}
+
+isAnagram('antagram', 'ansagram');
