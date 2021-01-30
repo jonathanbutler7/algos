@@ -1,6 +1,8 @@
 // algo problems i have memorized or am working to memorize
 
+// ====================================
 // RECURSION
+// ====================================
 
 function reverse(str) {
   if (str.length === 1) return str;
@@ -13,6 +15,9 @@ function isPalindrome(str) {
   if (str[0] === str.slice(-1)) return isPalindrome(str.slice(1, -1));
   return false;
 }
+// ====================================
+// FREQUENCY COUNTER
+// ====================================
 
 function twoSum(nums, target) {
   const numIndices = {};
@@ -47,3 +52,21 @@ function isAnagram(s1, s2) {
 }
 
 isAnagram('antagram', 'ansagram');
+
+// ====================================
+// MULTIPLE POINTERS
+// ====================================
+
+function sumZero(arr) {
+  let left = 0,
+    right = arr.length - 1;
+  while (left < right) {
+    let sum = arr[right] + arr[left];
+    if (sum === 0) return true;
+    if (sum > 0) right--;
+    if (sum < 0) left++;
+  }
+  return false;
+}
+
+sumZero([-1, 1, 2, 3, 4, 5, 6]);
