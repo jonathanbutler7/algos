@@ -9,12 +9,16 @@ function reverse(str) {
   return reverse(str.slice(1)) + str[0];
 }
 
+reverse('smhtirogla'); // 'algorithms'
+
 function isPalindrome(str) {
   if (str.length === 1) return true;
   if (str.length === 2) return str[0] === str[1];
   if (str[0] === str.slice(-1)) return isPalindrome(str.slice(1, -1));
   return false;
 }
+
+isPalindrome('racecar'); // true
 // ====================================
 // FREQUENCY COUNTER
 // ====================================
@@ -34,7 +38,7 @@ function twoSum(nums, target) {
   return [];
 }
 
-twoSum([1, 2, 3, 4, 5, 6], 7);
+twoSum([1, 2, 3, 4, 5, 6], 7); // [ 2, 3 ]
 
 function isAnagram(s1, s2) {
   const lookup = {};
@@ -51,7 +55,7 @@ function isAnagram(s1, s2) {
   return true;
 }
 
-isAnagram('antagram', 'ansagram');
+isAnagram('antagram', 'ansagram'); // false
 
 // ====================================
 // MULTIPLE POINTERS
