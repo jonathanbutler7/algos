@@ -19,7 +19,7 @@ function twoSum(nums, target) {
   for (let i = 0; i < nums.length; i++) {
     let num = nums[i];
     let complement = target - num;
-    if (numsIndices[complement]) return [numsIndices[complement], i];
+    if (numsIndices[complement] !== undefined) return [numsIndices[complement], i];
     numsIndices[num] = i;
   }
   return [];
