@@ -77,12 +77,14 @@ function sumZero(arr) {
 sumZero([-1, 1, 2, 3, 4, 5, 6]);
 
 function hasTriples(str) {
-  let indices = [];
+  const indices = [];
   let current = str[0];
   let startingIndex = 0;
   for (let i = 1; i < str.length + 1; i++) {
     if (str[i] !== current) {
-      if (i - startingIndex > 2) indices.push([startingIndex, i - 1]);
+      if (i - startingIndex > 2) {
+        indices.push([startingIndex, i - 1]);
+      }
       current = str[i];
       startingIndex = i;
     }
