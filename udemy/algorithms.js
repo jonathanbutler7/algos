@@ -389,7 +389,7 @@ function sumZero(arr) {
   while (left < right) {
     let sum = arr[left] + arr[right];
     if (sum === 0) return [arr[left], arr[right]];
-     if (sum > 0) {
+    if (sum > 0) {
       right--;
     } else {
       left++;
@@ -548,7 +548,7 @@ function duplicates(arr) {
     if (counter[arr[i]]) return true;
     counter[arr[i]] = 1;
   }
-  return false
+  return false;
 }
 
 areThereDuplicates(1, 2, 3, 4, 4);
@@ -866,7 +866,6 @@ function bubbleSort(arr) {
   for (var i = arr.length; i > 0; i--) {
     noSwaps = true;
     for (var j = 0; j < i - 1; j++) {
-      console.log(arr, arr[j], arr[j + 1]);
       if (arr[j] > arr[j + 1]) {
         // SWAP
         var temp = arr[j];
@@ -875,7 +874,6 @@ function bubbleSort(arr) {
         noSwaps = false;
       }
     }
-    console.log(noSwaps);
     if (noSwaps) break;
   }
   return arr;
