@@ -42,3 +42,22 @@ function longestSubstring(str) {
 
 // feb 2
 // https://leetcode.com/problems/sort-colors/
+
+function sort(arr) {
+  let noSwap;
+  for (let i = arr.length; i > 0; i--) {
+    noSwap = true;
+    for (let j = 0; j < i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+        noSwap = false;
+      }
+    }
+    if (noSwap) break;
+  }
+  return arr;
+}
+
+sort([7, 6, 5, 4, 4, 3, 2, 7]); // [ 2, 3, 4, 4, 5, 6, 7, 7 ]
