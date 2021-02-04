@@ -96,4 +96,27 @@ function longestPS(str) {
   }
   return { result };
 }
-longestPS('myracecarym');
+longestPS('myracecar'); // 'racecar'
+longestPS('myracecarym'); // 'myracecarym'
+longestPS('myrace'); // m
+
+
+// https://leetcode.com/problems/palindrome-number/
+function reverse(num) {
+  let thing = num.toString().split('').reverse().join('');
+  if (num < 0) {
+    let negRemoved = thing.slice(0, -1);
+    return ~Number(negRemoved) + 1;
+  }
+  return Number(thing);
+}
+
+reverse(120); // 21
+reverse(123); // 321
+reverse(-123); // -321
+
+
+
+
+
+// https://leetcode.com/list/xzqrtueg/
