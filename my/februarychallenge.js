@@ -120,7 +120,6 @@ reverse(-123); // -321
 
 function maxArea(arr) {
   let maxHeight = 0;
-  let current = arr[0];
   for (let i = 0; i < arr.length; i++) {
     for (let j = 1; j < arr.length; j++) {
       let distance = j - i;
@@ -130,6 +129,39 @@ function maxArea(arr) {
   }
   return maxHeight;
 }
+// ^^ 'naive' my solution
+function maxArea(height) {
+  let maxArea = 0;
+  let i = 0;
+  let j = height.length - 1;
+  while (i < j) {
+    let distance = j - i
+    console.log({distance})
+    maxArea = Math.max(maxArea, Math.min(height[i], height[j]) * distance);
+    if (height[i] < height[j]) {
+      i++;
+    } else {
+      j--;
+    }
+  }
+  return maxArea;
+};
+
+function maxArea(height) {
+  let maxArea = 0;
+  let i = 0;
+  let j = height.length - 1;
+  while (i < j) {
+    let distance = j - i
+    maxArea = Math.max(maxArea, Math.min(height[i], height[j]) * distance);
+    if (height[i] < height[j]) {
+      i++;
+    } else {
+      j--;
+    }
+  }
+  return maxArea;
+};
 
 maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]); //49
 maxArea([2,3,4,5,2,4,77,3,76]); // 152
