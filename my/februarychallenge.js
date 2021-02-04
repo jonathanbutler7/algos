@@ -61,3 +61,39 @@ function sort(arr) {
 }
 
 sort([7, 6, 5, 4, 4, 3, 2, 7]); // [ 2, 3, 4, 4, 5, 6, 7, 7 ]
+
+// feb 3
+// https://leetcode.com/problems/longest-palindromic-substring/
+
+// don't really understand how this one is working.
+
+function isPalindrome(str) {
+  if (str.length === 1) return true;
+  if (str.length === 2) return str[0] === str[1];
+  if (str[0] === str.slice(-1)) return isPalindrome(str.slice(1, -1));
+  return false;
+}
+
+function longestPS(str) {
+  var maxLength = 1;
+  var result = str[0] || '';
+  for (right = str.length - 1; right >= 0; right--) {
+    if (right + 1 < maxLength) {
+      break;
+    }
+    for (left = 0; left < right; left++) {
+      let lengthInView = right - left + 1;
+      console.log({ lengthInView, maxLength });
+      if (lengthInView > maxLength) {
+        const newStr = str.substring(left, right + 1);
+        if (isPalindrome(newStr)) {
+          maxLength = lengthInView;
+          result = newStr;
+          break;
+        }
+      }
+    }
+  }
+  return { result };
+}
+longestPS('myracecarym');
