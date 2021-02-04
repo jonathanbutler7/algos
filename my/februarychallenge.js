@@ -116,6 +116,24 @@ reverse(123); // 321
 reverse(-123); // -321
 
 
+// https://leetcode.com/problems/container-with-most-water/submissions/
+
+function maxArea(arr) {
+  let maxHeight = 0;
+  let current = arr[0];
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 1; j < arr.length; j++) {
+      let distance = j - i;
+      let area = Math.abs(distance) * Math.min(arr[i], arr[j]);
+      if (area > maxHeight) maxHeight = area;
+    }
+  }
+  return maxHeight;
+}
+
+maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]); //49
+maxArea([2,3,4,5,2,4,77,3,76]); // 152
+maxArea([1, 8, 6, 2, 5, 4]); // 16
 
 
 
