@@ -149,19 +149,18 @@ function maxArea(height) {
 
 function maxArea(height) {
   let maxArea = 0;
-  let i = 0;
-  let j = height.length - 1;
-  while (i < j) {
-    let distance = j - i
-    maxArea = Math.max(maxArea, Math.min(height[i], height[j]) * distance);
-    if (height[i] < height[j]) {
-      i++;
-    } else {
-      j--;
-    }
+  let left = 0;
+  let right = height.length - 1;
+  while (left < right) {
+    let distance = right - left;
+    minHeight = Math.min(height[left], height[right]);
+    let newArea = minHeight * distance;
+    maxArea = Math.max(maxArea, newArea);
+    if (height[left] < height[right]) left++;
+    else right--;
   }
-  return maxArea;
-};
+  return { maxArea };
+}
 
 maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]); //49
 maxArea([2,3,4,5,2,4,77,3,76]); // 152
