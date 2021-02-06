@@ -180,21 +180,16 @@ function picker(arr) {
   while (left < arr.length) {
     let diff = arr[right] - arr[left];
     if (diff !== 1 && diff !== 0) {
-      if (left - startingIndex > 0) {
-        count = Math.max(count, left + 1 - startingIndex);
-      }
+      count = Math.max(count, left + 1 - startingIndex);
       startingIndex = right;
-      left++;
-      right++;
-    } else {
-      right++;
-      left++;
     }
+    left++;
+    right++;
   }
   return count;
 }
 
-picker([8, 5, 4, 8, 4, 8, 9, 10, 11]); // 6
+picker([8, 5, 4, 8, 4, 8]); // 6
 
 
 
