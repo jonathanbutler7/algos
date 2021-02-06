@@ -167,5 +167,36 @@ maxArea([2,3,4,5,2,4,77,3,76]); // 152
 maxArea([1, 8, 6, 2, 5, 4]); // 16
 
 
+// twitter problem shared with me by brad from AWS
+
+const tickets = [8, 5, 4, 8, 4, 8, 9, 10, 11];
+
+function picker(arr) {
+  let count = 0;
+  arr.sort((a, b) => a - b);
+  let startingIndex = 0;
+  let left = 0;
+  let right = 1;
+  while (left < arr.length) {
+    let diff = arr[right] - arr[left];
+    if (diff !== 1 && diff !== 0) {
+      if (left - startingIndex > 0) {
+        count = Math.max(count, left + 1 - startingIndex);
+      }
+      startingIndex = right;
+      left++;
+      right++;
+    } else {
+      right++;
+      left++;
+    }
+  }
+  return count;
+}
+
+picker([8, 5, 4, 8, 4, 8, 9, 10, 11]); // 6
+
+
+
 
 // https://leetcode.com/list/xzqrtueg/
