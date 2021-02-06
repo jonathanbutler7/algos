@@ -100,7 +100,6 @@ longestPS('myracecar'); // 'racecar'
 longestPS('myracecarym'); // 'myracecarym'
 longestPS('myrace'); // m
 
-
 // https://leetcode.com/problems/palindrome-number/
 function reverse(num) {
   let thing = num.toString().split('').reverse().join('');
@@ -114,7 +113,6 @@ function reverse(num) {
 reverse(120); // 21
 reverse(123); // 321
 reverse(-123); // -321
-
 
 // https://leetcode.com/problems/container-with-most-water/submissions/
 
@@ -135,8 +133,8 @@ function maxArea(height) {
   let i = 0;
   let j = height.length - 1;
   while (i < j) {
-    let distance = j - i
-    console.log({distance})
+    let distance = j - i;
+    console.log({ distance });
     maxArea = Math.max(maxArea, Math.min(height[i], height[j]) * distance);
     if (height[i] < height[j]) {
       i++;
@@ -145,7 +143,7 @@ function maxArea(height) {
     }
   }
   return maxArea;
-};
+}
 
 function maxArea(height) {
   let maxArea = 0;
@@ -163,9 +161,8 @@ function maxArea(height) {
 }
 
 maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]); //49
-maxArea([2,3,4,5,2,4,77,3,76]); // 152
+maxArea([2, 3, 4, 5, 2, 4, 77, 3, 76]); // 152
 maxArea([1, 8, 6, 2, 5, 4]); // 16
-
 
 // twitter problem shared with me by brad from AWS
 
@@ -189,9 +186,7 @@ function picker(arr) {
   return count;
 }
 
-picker([8, 5, 4, 8, 4, 8]); // 6
-
-
-
+picker([8, 5, 4, 8, 4, 8, 8]); // 4
+picker([4, 13, 2, 3]); // 3
 
 // https://leetcode.com/list/xzqrtueg/
