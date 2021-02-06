@@ -180,7 +180,7 @@ function picker(arr) {
   while (left < arr.length) {
     let diff = arr[right] - arr[left];
     if (diff !== 1 && diff !== 0) {
-      count = Math.max(count, left + 1 - startingIndex);
+      count = Math.max(count, right - startingIndex);
       startingIndex = right;
     }
     left++;
