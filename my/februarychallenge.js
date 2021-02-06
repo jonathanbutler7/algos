@@ -169,11 +169,8 @@ maxArea([1, 8, 6, 2, 5, 4]); // 16
 const tickets = [8, 5, 4, 8, 4, 8, 9, 10, 11];
 
 function picker(arr) {
-  let count = 0;
   arr.sort((a, b) => a - b);
-  let startingIndex = 0;
-  let left = 0;
-  let right = 1;
+  let count = 0, startingIndex = 0, left = 0, right = 1;
   while (left < arr.length) {
     let diff = arr[right] - arr[left];
     if (diff !== 1 && diff !== 0) {
