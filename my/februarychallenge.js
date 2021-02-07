@@ -170,7 +170,10 @@ const tickets = [8, 5, 4, 8, 4, 8, 9, 10, 11];
 
 function picker(arr) {
   arr.sort((a, b) => a - b);
-  let count = 0, startingIndex = 0, left = 0, right = 1;
+  let count = 0,
+    startingIndex = 0,
+    left = 0,
+    right = 1;
   while (left < arr.length) {
     let diff = arr[right] - arr[left];
     if (diff !== 1 && diff !== 0) {
@@ -185,5 +188,27 @@ function picker(arr) {
 
 picker([8, 5, 4, 8, 4, 8, 8]); // 4
 picker([4, 13, 2, 3]); // 3
+
+// from colt steele course. uses multiple pointers to iterate through the array once
+function countUniqueVals(arr) {
+  let i = 0;
+  for (let j = 1; j < arr.length; j++) {
+    if (arr[i] !== arr[j]) {
+      i++;
+      arr[i] = arr[j];
+    }
+  }
+  return i + 1;
+}
+
+function countUniqueVals(arr) {
+  let counter = {};
+  for (let i = 0; i < arr.length; i++) {
+    counter[arr[i]] ? counter[arr[i]]++ : (counter[arr[i]] = 1);
+  }
+  return Object.keys(counter).length;
+} // the solution i came up with before I understood how to use multiple pointers
+
+countUniqueVals([1, 1, 2, 3, 3, 4, 5, 6, 6, 7]); // 7
 
 // https://leetcode.com/list/xzqrtueg/
