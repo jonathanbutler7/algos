@@ -943,3 +943,42 @@ selectionSort([34, 22, 10, 19, 17, 1]);
 // start by picking the second elem in the array bc the first is already 'sorted'
 // compare second element with one before it and swap if necessary
 // continue to the next element & if it's in the incorrect order iterate through the sorted portion to place the element in the correct place
+
+// ================================================
+// SECTION 17 RADIX SORT
+// ================================================
+
+function getDigit(num, i) {
+  return Math.floor((num / Math.pow(10, i)) % 10);
+}
+
+function digitCount(num) {
+  if (num === 0) return 1;
+  return Math.floor(Math.log10(Math.abs(num)) + 1);
+}
+
+function mostDigits(arr) {
+  let biggest = 0;
+  for (let i = 0; i < arr.length; i++) {
+    let num = arr[i];
+    biggest = Math.max(biggest, digitCount(num));
+  }
+  return biggest;
+}
+
+function radix(nums) {
+  const maxDigitCount = mostDigits(nums);
+  for (let k = 0; k < maxDigitCount; k++) {
+    let digitBuckets = Array.from({ length: 10 }, () => []);
+    for (let i = 0; i < nums.length; i++) {
+      let digit = getDigit(nums[i], k);
+      digitBuckets[digit].push(nums[i]);
+    }
+    console.log(digitBuckets);
+    nums = [].concat(...digitBuckets);
+    console.log(nums);
+  }
+  return nums;
+}
+
+radix([23, 345, 5467, 12, 2345, 9852]);
