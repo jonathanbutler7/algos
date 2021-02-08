@@ -211,4 +211,23 @@ function countUniqueVals(arr) {
 
 countUniqueVals([1, 1, 2, 3, 3, 4, 5, 6, 6, 7]); // 7
 
+// https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/submissions/
+function anagram(s, t) {
+  let balanceMap = {},
+    result = 0;
+  for (let i = 0; i < s.length; i++) {
+    let currentS = s[i],
+      currentT = t[i];
+    balanceMap[currentS] ? balanceMap[currentS]++ : (balanceMap[currentS] = 1);
+    balanceMap[currentT] ? balanceMap[currentT]-- : (balanceMap[currentT] = -1);
+  }
+
+  for (let k of Object.values(balanceMap)) {
+    result += Math.abs(k);
+  }
+  return result / 2;
+}
+
+anagram('leetcode', 'practice'); // 5
+
 // https://leetcode.com/list/xzqrtueg/
