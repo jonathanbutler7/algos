@@ -40,6 +40,26 @@ function longestSubstring(str) {
   return currentLongest;
 }
 
+// another solution that I can understand better:
+function longestSubstring(s) {
+  let set = new Set();
+  let left = 0,
+    right = 0;
+  let max = 0;
+  while (right < s.length) {
+    console.log(left, right);
+    if (!set.has(s[right])) {
+      set.add(s[right]);
+      max = Math.max(max, set.size);
+      right++;
+    } else {
+      set.delete(s.charAt(left));
+      left++;
+    }
+  }
+  return max;
+}
+
 // feb 2
 // https://leetcode.com/problems/sort-colors/
 

@@ -60,9 +60,6 @@ function isAnagram(s1, s2) {
 
 isAnagram('antagram', 'ansagram');
 
-
-
-// https://leetcode.com/problems/palindrome-number/submissions/
 function isPalindrome(num) {
   let str = num.toString();
   if (str.length === 1) return true;
@@ -73,3 +70,23 @@ function isPalindrome(num) {
 
 isPalindrome(121); // true
 isPalindrome(-121); // false
+
+function divideAndConquer(arr, targ) {
+  let min = 0;
+  let max = arr.length - 1;
+  while (min <= max) {
+    let middle = Math.floor((max + min) / 2);
+    let currentVal = arr[middle];
+    if (currentVal < targ) min = middle + 1;
+    else if (currentVal > targ) max = middle - 1;
+    else return middle;
+  }
+  return -1;
+}
+// ^^ Log(N)
+divideAndConquer([0, 1, 2, 3, 4, 5, 6], 1); // 1
+divideAndConquer([1, 2, 3, 4, 5], 5); // 4
+divideAndConquer([2, 3, 4, 6, 8, 10, 11], 11); // 6
+
+
+// https://leetcode.com/problems/palindrome-number/submissions/
