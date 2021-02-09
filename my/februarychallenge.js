@@ -42,10 +42,10 @@ function longestSubstring(str) {
 
 // another solution that I can understand better:
 function longestSubstring(s) {
-  let set = new Set();
-  let left = 0,
-    right = 0;
-  let max = 0;
+  let set = new Set(),
+    left = 0,
+    right = 0,
+    max = 0;
   while (right < s.length) {
     console.log(left, right);
     if (!set.has(s[right])) {
@@ -249,5 +249,24 @@ function anagram(s, t) {
 }
 
 anagram('leetcode', 'practice'); // 5
+
+// a problem that i did a few days ago but never understood. glad i dove in deeper to figure it out today
+
+function longestSubstring(s) {
+  let longest = '';
+  let current = '';
+  for (let i = 0; i < s.length; i++) {
+    let letter = s[i];
+    let index = current.indexOf(letter);
+    if (index > -1) {
+      if (current.length > longest.length) longest = current;
+      current = current.slice(index + 1) + letter;
+    } else current += letter;
+  }
+  if (current.length > longest.length) longest = current;
+  return longest.length;
+}
+
+longestSubstring('thisisawesome'); // 6
 
 // https://leetcode.com/list/xzqrtueg/
