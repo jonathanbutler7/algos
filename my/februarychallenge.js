@@ -266,6 +266,16 @@ function longestSubstring(s) {
   if (current.length > longest.length) longest = current;
   return longest.length;
 }
+function longestSubstring(s) {
+  // store s[i] in letter variable
+  // store index of letter in current
+  // if index exists in current 
+  // if current is longer than longest, set longest = to current
+  // set current = to current with part of string removed up until repeated character. add on current letter
+  // if s[i] is not in current, add it in
+  // if current.length is longer than longest.length, set longest = to current
+  return longest.length;
+}
 
 longestSubstring('thisisawesome'); // 6
 

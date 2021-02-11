@@ -85,6 +85,9 @@ Point.distance(p1, p2);
 // SECTION 19 SINGLY LINKED LISTS
 // ================================================
 
+// linked lists are good at insertion and deletion, good reasons to use linked list especially if the dataset is large and you don't need random access
+// random access not possible
+
 class Node {
   constructor(val) {
     this.val = val;
@@ -105,6 +108,7 @@ class SinglyLinkedList {
     this.length = 0;
   }
   push(val) {
+    // push is inserting at the end
     var newNode = new Node(val);
     if (!this.head) {
       this.head = newNode;
@@ -368,8 +372,8 @@ ht.keyMap;
 ht.get('freh');
 ht.get('what');
 
-ht.keys().forEach(key => {
-  console.log(ht.get(key))
+ht.keys().forEach((key) => {
+  console.log(ht.get(key));
 });
 
 // SET / GET
@@ -384,3 +388,22 @@ ht.keys().forEach(key => {
 // 2. hashes the key
 // 3. Retrives the key-value pair
 // 4. If the key isn't found, returns undefined
+
+// ================================================
+// SECTION 22 BST
+// ================================================
+
+// Inserting a node pseudo code
+
+// - create a new node
+// - starting at the root
+// - - check if there is a root. if not - the root now becomes the new node
+// - - if there is a root, check if the value of the new node is < or > val of root
+// - - if it is greater
+// - - - check to see if there is a node to the right
+// - - - - if there is, move to that node and repeat steps
+// - - - - if not, add that node as the right property
+// - - if it is less
+// - - - check to see if there is a node to the left
+// - - - if there is, move to that node and repeat steps
+// - - - if not, add that node as the left property
