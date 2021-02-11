@@ -269,7 +269,7 @@ function longestSubstring(s) {
 function longestSubstring(s) {
   // store s[i] in letter variable
   // store index of letter in current
-  // if index exists in current 
+  // if index exists in current
   // if current is longer than longest, set longest = to current
   // set current = to current with part of string removed up until repeated character. add on current letter
   // if s[i] is not in current, add it in
@@ -278,5 +278,19 @@ function longestSubstring(s) {
 }
 
 longestSubstring('thisisawesome'); // 6
+
+function binarySearch(arr, targ) {
+  let left = 0,
+    right = arr.length - 1;
+  while (left <= right) {
+    let middle = Math.floor((left + right) / 2);
+    if (targ === arr[middle]) return true;
+    if (arr[middle] < targ) left = middle + 1;
+    if (arr[middle] > targ) right = middle - 1;
+  }
+  return false;
+}
+
+binarySearch([1, 3, 4, 5, 7, 8, 9, 10, 13, 14], 14);
 
 // https://leetcode.com/list/xzqrtueg/
