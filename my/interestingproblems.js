@@ -99,6 +99,41 @@ divideAndConquer([2, 3, 4, 6, 8, 10, 11], 11); // 6
 // each element of array A is an integer within the range [−1,000,000..1,000,000].
 // possible to use binary search
 
+// Write a function `solution` that, given an integer N, returns the maxium possible value obtained by inserting one '5' digit inside the decimal represenation of N.
 
+// Examples:
+// 1. n = 268 // 5268
+// 2. n = 670 // 6750
+// 3. n = 0 // 50
+// 4. n = -999 // -5999
+
+function solution(n) {
+  let arr = n.toString().split('');
+  for (let i = arr.length - 1; i >= 0; i--) {
+    if (arr[i] < 5) arr.splice(i, 0, 5);
+  }
+  return Number(arr.join(''));
+}
+
+solution(670); // 6750
+
+// A string is called balanced when every letter occurring in the string appears both in upper- and lowercase. For example, the string 'CATattac' is balanced (a, c, and t occur in both cases), but 'Madam' is not (d and a appear only in lower case). Note that the number of occurrences does not matter.
+
+// Write a function that, given a string S of length N, returns the length of the shortest balanced fragment of S. If S does not contain any balanced fragments, the function should return -1.
+
+// Examples:
+// 'azABaabza' // shortest balanced fragment is 'ABaab', should return 5
+// 'TacoCat' // there is no balanced fragment, should return -1
+// 'AcZCbabz' // shortest balanced fragment is whole string, should return 8
+// 'abcdefghijklmnopqrstuvwxyz' // no balanced fragment, should return -1
 
 // https://leetcode.com/problems/palindrome-number/submissions/
+
+function getDays(day, num) {
+  const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  const dayIndex = days.indexOf(day);
+  const numIndex = (dayIndex + num) % days.length;
+  return days[numIndex];
+}
+
+getDays('Wed', 25);
