@@ -117,15 +117,46 @@ function solution(n) {
 
 solution(670); // 6750
 
+// below is the solution i was trying to do earlier but couldn't get it to work. it still doesn't work with negative numbers.
+function solution(n) {
+  let max = n;
+  let arr = Math.abs(n).toString().split('');
+  for (let i = arr.length - 1; i >= 0; --i) {
+    arr.splice(i, 0, 5);
+    let newNum = Number(arr.join(''));
+    max = Math.max(max, newNum);
+    arr.splice(i, 1);
+  }
+  return max;
+}
+
+solution(999); // 9959
+
+// below is andrew's solution
+
+function fives(n) {
+  let arr = n.toString().split('');
+  let index;
+  if (n >= 0) index = arr.findIndex((num) => num < 5);
+  if (n < 0) index = arr.findIndex((num) => num > 5);
+  if (index === -1) index = arr.length;
+  arr.splice(index, 0, 5);
+  return Number(arr.join(''));
+}
+fives(268); // 5268
+fives(670); // 6750
+fives(0); // 50
+fives(-999); // -5999
+
 // A string is called balanced when every letter occurring in the string appears both in upper- and lowercase. For example, the string 'CATattac' is balanced (a, c, and t occur in both cases), but 'Madam' is not (d and a appear only in lower case). Note that the number of occurrences does not matter.
 
 // Write a function that, given a string S of length N, returns the length of the shortest balanced fragment of S. If S does not contain any balanced fragments, the function should return -1.
 
 // Examples:
-// 'azABaabza' // shortest balanced fragment is 'ABaab', should return 5
-// 'TacoCat' // there is no balanced fragment, should return -1
-// 'AcZCbabz' // shortest balanced fragment is whole string, should return 8
-// 'abcdefghijklmnopqrstuvwxyz' // no balanced fragment, should return -1
+// solution('azABaabza') // shortest balanced fragment is 'ABaab', returns 5
+// solution('TacoCat') // there is no balanced fragment, returns -1
+// solution('AcZCbabz') // shortest balanced fragment is whole string, returns 8
+// solution('abcdefghijklmnopqrstuvwxyz') // no balanced fragment, returns -1
 
 // https://leetcode.com/problems/palindrome-number/submissions/
 
