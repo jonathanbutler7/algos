@@ -132,7 +132,7 @@ function solution(n) {
 
 solution(999); // 9959
 
-// below is andrew's solution
+// below is andrew h's solution
 
 function fives(n) {
   let arr = n.toString().split('');
