@@ -158,6 +158,47 @@ fives(-999); // -5999
 // solution('AcZCbabz') // shortest balanced fragment is whole string, returns 8
 // solution('abcdefghijklmnopqrstuvwxyz') // no balanced fragment, returns -1
 
+// function whitelistChars(str) {
+//   const lowers = Array.from(str.matchAll(/[a-z]/g), m => m[0]);
+//   const uppers = Array.from(str.matchAll(/[A-Z]/g), m => m[0].toLowerCase());
+//   return lowers.filter(x => uppers.includes(x));
+// }
+
+// whitelistChars('CatAtacklL') // [ 'a', 'a', 'c', 'l' ]
+// whitelistChars('TacoCatOo') // [ 'c', 'o', 't', 'o' ]
+
+// function reverseCase(char) {
+//   if(/[a-z]/.test(char)) {
+//     return char.toUpperCase();
+//   } else {
+//     return char.toLowerCase();
+//   }
+// }
+
+// function balanced(str) {
+//   let substring = '', current = [str[0]];
+//   let whitelist = whitelistChars(str);
+//   for(let i = 1; i < str.length; i++) {
+//     char = str[i];
+//     if(!whitelist.includes(char.toLowerCase())) {
+//       current = [];
+//       continue;
+//     }
+//     current.push(char);
+//     if(current.every(char => current.includes(reverseCase(char)))) {
+//       return current.length;
+//     }
+//   }
+//   return -1;
+// }
+
+// balanced('azABaabza'); // 5
+// balanced('TacoCat'); // -1
+// balanced('AcZCbaBz'); // 8
+// balanced('abcdefghijklmnopqrstuvwxyz') // -1
+// balanced('abBa') // -1 ***
+// balanced('abBA') // 4 ***
+
 // https://leetcode.com/problems/palindrome-number/submissions/
 
 function getDays(day, num) {
