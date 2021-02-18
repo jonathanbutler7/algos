@@ -159,16 +159,16 @@ fives(-999); // -5999
 // solution('abcdefghijklmnopqrstuvwxyz') // no balanced fragment, returns -1
 
 function whitelistChars(str) {
-  const lowers = Array.from(str.matchAll(/[a-z]/g), m => m[0]);
-  const uppers = Array.from(str.matchAll(/[A-Z]/g), m => m[0].toLowerCase());
-  return lowers.filter(x => uppers.includes(x));
+  const lowers = Array.from(str.matchAll(/[a-z]/g), (m) => m[0]);
+  const uppers = Array.from(str.matchAll(/[A-Z]/g), (m) => m[0].toLowerCase());
+  return lowers.filter((x) => uppers.includes(x));
 }
 
-whitelistChars('CatAtacklL') // [ 'a', 'a', 'c', 'l' ]
-whitelistChars('TacoCatOo') // [ 'c', 'o', 't', 'o' ]
+whitelistChars('CatAtacklL'); // [ 'a', 'a', 'c', 'l' ]
+whitelistChars('TacoCatOo'); // [ 'c', 'o', 't', 'o' ]
 
 function reverseCase(char) {
-  if(/[a-z]/.test(char)) {
+  if (/[a-z]/.test(char)) {
     return char.toUpperCase();
   } else {
     return char.toLowerCase();
@@ -176,16 +176,17 @@ function reverseCase(char) {
 }
 
 function balanced(str) {
-  let substring = '', current = [str[0]];
+  let substring = '',
+    current = [str[0]];
   let whitelist = whitelistChars(str);
-  for(let i = 1; i < str.length; i++) {
+  for (let i = 1; i < str.length; i++) {
     char = str[i];
-    if(!whitelist.includes(char.toLowerCase())) {
+    if (!whitelist.includes(char.toLowerCase())) {
       current = [];
       continue;
     }
     current.push(char);
-    if(current.every(char => current.includes(reverseCase(char)))) {
+    if (current.every((char) => current.includes(reverseCase(char)))) {
       return current.length;
     }
   }
@@ -209,3 +210,103 @@ function getDays(day, num) {
 }
 
 getDays('Wed', 25);
+
+// Write a function that takes an object as an argument. The shape... the values can be numbers strings, or other objects. Return flattened version of the object. (Nested key value pairs brought to top level). In the output, none of the values will be objects.
+
+// input: {
+//     1: 1
+//     2: '2',
+//     3: {
+//         4: 'hello'
+//     }
+// }
+
+const input = {
+  1: 1,
+  2: '2',
+  3: {
+    4: 'hello',
+    5: 'goodbye',
+  },
+};
+// output: {
+//     1: 1
+//     2: '2',
+//     4: 'hello'
+// }
+
+function flatten(obj) {
+  let stack = [obj];
+
+  let result = {};
+  while (stack.length !== 0) {
+    let currentObj = stack.pop();
+    let arr = Object.keys(currentObj);
+    for (let i = 0; i < arr.length; i++) {
+      let key = arr[i];
+      let value = currentObj[arr[i]];
+      if (typeof value === 'string' || typeof value === 'number') {
+        result[key] = value;
+      } else {
+        console.log(value);
+        stack.push(value);
+      }
+    }
+  }
+  return result;
+  // iterate over Object.values(obj)
+  // if value is an object,
+}
+flatten(input);
+
+// below is the recursive solution
+function gatherStrings(o, result) {
+  for (var key in o) {
+    if (typeof o[key] === 'string' || typeof o[key] === 'number') {
+      result[key] = o[key];
+    } else if (typeof o[key] === 'object') {
+      return gatherStrings(o[key], result);
+    }
+  }
+}
+
+function collectStrings(obj) {
+  let result = {};
+  gatherStrings(obj, result);
+  return result;
+}
+
+// below is my cleaned up solution
+
+function collectStrings(obj, result = {}) {
+  for (var key in obj) {
+    if (typeof obj[key] === 'string' || typeof obj[key] === 'number') {
+      result[key] = obj[key];
+    } else return collectStrings(obj[key], result);
+  }
+  return result;
+}
+
+// a criminal, holding someone hostage, needs to write a ransom note
+// you have a note in your head and a newpaper clipping
+// you need to determine based on the newspaper if you have the correct letters for the note you want to write
+
+const newspaper = 'letterwewanttowrite';
+const ransomNote = 'letterwewanttowrite';
+
+function getLetters(newspaper, ransomNote) {
+  let nHash = {};
+  for (let i = 0; i < newspaper.length; i++) {
+    let letter = newspaper[i];
+    nHash[letter] ? nHash[letter]++ : (nHash[letter] = 1);
+  }
+  for (let i = 0; i < ransomNote.length; i++) {
+    let letter = ransomNote[i];
+    if (!nHash[letter] || nHash[letter] < 0) {
+      return false;
+    } else nHash[letter]--;
+  }
+  return true;
+}
+
+getLetters(newspaper, ransomNote);
