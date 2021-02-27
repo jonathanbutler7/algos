@@ -229,15 +229,14 @@ const input = {
     5: 'goodbye',
   },
 };
-// output: {
-//     1: 1
-//     2: '2',
-//     4: 'hello'
-// }
+output: {
+    1: 1
+    2: '2',
+    4: 'hello'
+}
 
 function flatten(obj) {
   let stack = [obj];
-
   let result = {};
   while (stack.length !== 0) {
     let currentObj = stack.pop();
@@ -248,7 +247,7 @@ function flatten(obj) {
       if (typeof value === 'string' || typeof value === 'number') {
         result[key] = value;
       } else {
-        console.log(value);
+        
         stack.push(value);
       }
     }
@@ -259,24 +258,8 @@ function flatten(obj) {
 }
 flatten(input);
 
-// below is the recursive solution
-function gatherStrings(o, result) {
-  for (var key in o) {
-    if (typeof o[key] === 'string' || typeof o[key] === 'number') {
-      result[key] = o[key];
-    } else if (typeof o[key] === 'object') {
-      return gatherStrings(o[key], result);
-    }
-  }
-}
 
-function collectStrings(obj) {
-  let result = {};
-  gatherStrings(obj, result);
-  return result;
-}
-
-// below is my cleaned up solution
+// below is my cleaned up recursive solution
 
 function collectStrings(obj, result = {}) {
   for (var key in obj) {
