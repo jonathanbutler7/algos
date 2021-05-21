@@ -221,19 +221,19 @@ getDays('Wed', 25);
 //     }
 // }
 
-const input = {
-  1: 1,
-  2: '2',
-  3: {
-    4: 'hello',
-    5: 'goodbye',
-  },
-};
-output: {
-    1: 1
-    2: '2',
-    4: 'hello'
-}
+// const input = {
+//   1: 1,
+//   2: '2',
+//   3: {
+//     4: 'hello',
+//     5: 'goodbye',
+//   },
+// };
+// output: {
+//     1: 1
+//     2: '2',
+//     4: 'hello'
+// }
 
 function flatten(obj) {
   let stack = [obj];
@@ -258,6 +258,17 @@ function flatten(obj) {
 }
 flatten(input);
 
+function flatten(obj) {
+  for (x in obj) {
+    if (typeof obj[x] === 'object') {
+      const inner = obj[x];
+      delete obj[x];
+      obj = Object.assign(obj, flatten(inner));
+    }
+  }
+  return obj;
+}
+// ^ andrew's solution
 
 // below is my cleaned up recursive solution
 
