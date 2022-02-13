@@ -101,7 +101,7 @@ function sum(arr) {
   }
   return total;
 } // this has two vars, `total` and `i`
-// it's O(1) space becuse we aren't adding to the space that n takes up
+// it's O(1) space because we aren't adding to the space that n takes up
 
 sum([0, 1, 2, 3]); // -> 6
 
@@ -160,7 +160,7 @@ double([1, 2, 3]); // [ 2, 4, 6 ]
 
 // INTRO TO PROBLEM SOLVING 4.18
 
-// what is an algorithm? process or set ot steps to accomplish a certain task.
+// what is an algorithm? process or set of steps to accomplish a certain task.
 // almost everything you do involves some sort of algorithm
 
 // How do you get better?
@@ -186,7 +186,7 @@ double([1, 2, 3]); // [ 2, 4, 6 ]
 // 4.21
 
 // SIMPLIFY
-// find th core difficulty in what you'er trying to do
+// find the core difficulty in what you're trying to do
 // temporarily ignore that difficulty
 // write a simplified solution
 // incorporate that difficulty back in
@@ -279,11 +279,11 @@ function isAlphaNumeric(char) {
   return true;
 }
 
-// -Understand the problem
-// -Explore concrete examples
-// -Break it down
-// -Solve/simplify
-// -Look back and refactor
+// - Understand the problem
+// - Explore concrete examples
+// - Break it down
+// - Solve/simplify
+// - Look back and refactor
 
 // ================================================
 // SECTION 5
@@ -407,7 +407,7 @@ sumZero(short);
 // SECTION 6
 // ================================================
 
-// Implememt a function called countUniqueValues which accepts a sorted array and counts the unique values in the array.
+// Implement a function called countUniqueValues which accepts a sorted array and counts the unique values in the array.
 
 function countUniqueValues(arr) {
   if (arr.length === 0) return 0;

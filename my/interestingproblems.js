@@ -4,7 +4,7 @@
 // expressive: helllooooo (>=3)
 // potato
 // poootato
-// keep track of indeces, what letter you're currently looking at, and starting index of that letter
+// keep track of indices, what letter you're currently looking at, and starting index of that letter
 
 function getTriples(str) {
   let indices = [];
