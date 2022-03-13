@@ -291,7 +291,7 @@ function isAlphaNumeric(char) {
 
 // 5.27
 // FREQUENCY COUNTERS
-// this pattern uses objects or sets to collect values/frequences of values
+// this pattern uses objects or sets to collect values/frequencies of values
 
 // can often avoid the need for nested loops of O(n^2) operations with arrays/strings
 
@@ -604,7 +604,7 @@ findLongestSubstring('thecatin');
 
 // 5.34 divide and conquer
 
-// tremendeously decreases time complexity
+// tremendously decreases time complexity
 
 // ================================================
 // SECTION 7
@@ -677,7 +677,7 @@ fib(35); // 9227465
 // SECTION 9 Bonus CHALLENGING
 // Recursion Problems
 // ================================================
-// COME BACK TO THIS ONE BEACUSE THEY ARE SO HARD
+// COME BACK TO THIS ONE BECAUSE THEY ARE SO HARD
 
 // i made up my own recursion problems
 

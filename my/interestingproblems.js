@@ -99,7 +99,7 @@ divideAndConquer([2, 3, 4, 6, 8, 10, 11], 11); // 6
 // each element of array A is an integer within the range [−1,000,000..1,000,000].
 // possible to use binary search
 
-// Write a function `solution` that, given an integer N, returns the maxium possible value obtained by inserting one '5' digit inside the decimal represenation of N.
+// Write a function `solution` that, given an integer N, returns the maximum possible value obtained by inserting one '5' digit inside the decimal representation of N.
 
 // Examples:
 // 1. n = 268 // 5268
@@ -282,7 +282,7 @@ function collectStrings(obj, result = {}) {
 }
 
 // a criminal, holding someone hostage, needs to write a ransom note
-// you have a note in your head and a newpaper clipping
+// you have a note in your head and a newspaper clipping
 // you need to determine based on the newspaper if you have the correct letters for the note you want to write
 
 const newspaper = 'letterwewanttowrite';
