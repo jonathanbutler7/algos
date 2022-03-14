@@ -54,9 +54,7 @@ const addTwoNumbers = (l1: Head, l2: Head) => {
     l2 = l2 ? l2.next : null;
   }
 
-  if (carry) {
-    result.append(carry);
-  }
+  if (carry) result.append(carry);
 
   return result;
 };
@@ -69,6 +67,9 @@ let result = addTwoNumbers(l1.head, l2.head);
 for (let node of result.traverse()) {
   console.log(node.val);
 }
+
+
+
 
 // class ListNode {
 //   val: number;
