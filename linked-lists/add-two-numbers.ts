@@ -8,8 +8,8 @@ class ListNode {
 }
 
 class LinkedList {
-  head: ListNode | null;
-  tail: ListNode | null;
+  head: ListNode;
+  tail: ListNode;
   constructor(sequence = []) {
     this.head = null;
     this.tail = null;
@@ -67,9 +67,6 @@ let result = addTwoNumbers(l1.head, l2.head);
 for (let node of result.traverse()) {
   console.log(node.val);
 }
-
-
-
 
 // class ListNode {
 //   val: number;
