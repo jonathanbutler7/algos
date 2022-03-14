@@ -18,7 +18,7 @@ class LinkedList {
     }
   }
 
-  append(value) {
+  append(value: number) {
     const node = new ListNode(value);
     // check if list is empty
     if (!this.head) {
@@ -39,8 +39,11 @@ class LinkedList {
   }
 }
 
-const addTwoNumbers = (l1, l2) => {
-  let head, tail;
+type Head = LinkedList['head'];
+type Tail = LinkedList['tail'];
+
+const addTwoNumbers = (l1: Head, l2: Head) => {
+  let head: Head, tail: Tail;
   let carry = 0;
 
   while (l1 || l2) {
