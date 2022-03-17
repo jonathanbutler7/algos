@@ -12,7 +12,7 @@ class Student {
   }
 }
 
-let firstStudent = new Student('Jonathan', 'Butler', 9);
+// let firstStudent = new Student('Jonathan', 'Butler', 9);
 
 class Animal {
   constructor(arms, legs, nose) {
@@ -225,6 +225,23 @@ class SinglyLinkedList {
     while (current) {
       arr.push(current.val);
       current = current.next;
+    }
+  }
+  swapPairs() {
+    let prev = this.head;
+    let currentNode = this.head;
+    let nextNode = this.head.next;
+    this.head = this.head.next;
+
+    while (nextNode) {
+      const nextNext = nextNode.next;
+      currentNode.next = nextNext;
+      nextNode.next = currentNode;
+      prev.next = nextNode;
+
+      prev = currentNode;
+      currentNode = nextNext;
+      nextNode = nextNext?.next;
     }
   }
 }
